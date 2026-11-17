@@ -1,0 +1,32 @@
+{
+ "model": "tesseract-5.5.4-kan-best",
+ "set": "wikisource-old",
+ "split": "dev",
+ "transform": null,
+ "sampled_from": 32,
+ "date": "2026-11-16",
+ "seconds_per_item": 1.086,
+ "items": 32,
+ "cer": 0.12400756143667296,
+ "wer": 0.4822035819542054,
+ "aer": 0.16581017781618082,
+ "chars": {
+  "edits": 4592,
+  "reference": 37030
+ },
+ "words": {
+  "edits": 2127,
+  "reference": 4411
+ },
+ "aksharas": {
+  "edits": 3646,
+  "reference": 21989
+ },
+ "wrong_script_items": 0,
+ "cer_by_group": {
+  "Daaminii.pdf": 0.2424,
+  "ಉಮರನ ಒಸಗೆ.djvu": 0.0711,
+  "ಕೋಟಿ ಚೆನ್ನಯ-ಪಂಜೆ ಮಂಗೇಶರಾವ್.pdf": 0.0523,
+  "ಸುವರ್ಣಸುಂದರಿ.djvu": 0.0868
+ }
+}

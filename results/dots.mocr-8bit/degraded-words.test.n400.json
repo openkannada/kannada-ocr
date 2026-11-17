@@ -1,0 +1,29 @@
+{
+ "model": "dots.mocr-8bit",
+ "set": "degraded-words",
+ "split": "test",
+ "transform": null,
+ "sampled_from": 1685,
+ "date": "2026-11-16",
+ "seconds_per_item": 0.534,
+ "items": 400,
+ "cer": 0.2905891762196747,
+ "wer": 0.8497536945812808,
+ "aer": 0.4793050587634134,
+ "chars": {
+  "edits": 1090,
+  "reference": 3751
+ },
+ "words": {
+  "edits": 345,
+  "reference": 406
+ },
+ "aksharas": {
+  "edits": 938,
+  "reference": 1957
+ },
+ "wrong_script_items": 54,
+ "cer_by_group": {
+  "219": 0.2906
+ }
+}

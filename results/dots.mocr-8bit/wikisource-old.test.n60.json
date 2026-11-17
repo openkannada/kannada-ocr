@@ -1,0 +1,46 @@
+{
+ "model": "dots.mocr-8bit",
+ "set": "wikisource-old",
+ "split": "test",
+ "transform": null,
+ "sampled_from": 144,
+ "date": "2026-11-16",
+ "seconds_per_item": 39.386,
+ "items": 60,
+ "cer": 0.07021578201291542,
+ "wer": 0.3703260146373919,
+ "aer": 0.10167422855475072,
+ "chars": {
+  "edits": 4458,
+  "reference": 63490
+ },
+ "words": {
+  "edits": 2783,
+  "reference": 7515
+ },
+ "aksharas": {
+  "edits": 3832,
+  "reference": 37689
+ },
+ "wrong_script_items": 0,
+ "cer_by_group": {
+  "Katha sangraha or Canarese selections prose Part VI Proverbs.djvu": 0.0344,
+  "Yugaantara - Gokaak.pdf": 0.093,
+  "ಇಂದ್ರವಜ್ರ.djvu": 0.0788,
+  "ಐತಿಹಾಸಿಕ ಕಥಾವಳಿ-ಪಂಜೆ ಮಂಗೇಶರಾವ್.pdf": 0.14,
+  "ಕನ್ನಡದ ಬಾವುಟ.djvu": 0.0363,
+  "ಕರ್ನಾಟಕ ಗತವೈಭವ.djvu": 0.25,
+  "ಚಂದ್ರಮತಿ.djvu": 0.0334,
+  "ಚೆಲುವು.djvu": 0.0586,
+  "ಪರಂತಪ ವಿಜಯ ೨.djvu": 0.0394,
+  "ಪೊನ್ನಮ್ಮ-ಗೌರಮ್ಮ.pdf": 0.0772,
+  "ಭವತೀ ಕಾತ್ಯಾಯನೀ.djvu": 0.0585,
+  "ಯುಗಳಾಂಗುರೀಯ.djvu": 0.026,
+  "ರಮಾನಂದ.djvu": 0.077,
+  "ಶ್ರೀರಾಮಕೃಷ್ಣ ಪರಮಹಂಸರ ಚರಿತ್ರೆ.djvu": 0.0488,
+  "ಸುಶೀಲೆ.djvu": 0.0817,
+  "ಸೃಷ್ಟಿವ್ಯಾಪಾರಗಳ ನಿರೀಕ್ಷಣೆ.djvu": 0.0287,
+  "ಹಳ್ಳಿಯ ಚಿತ್ರಗಳು.djvu": 0.0371,
+  "ಹೂಬಿಸಿಲು-ಶ್ಯಾಮಲಾದೇವಿ.pdf": 0.1392
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "model": "tesseract-5.5.4-kan_ft-psm4",
+ "set": "mile-pages",
+ "split": "test",
+ "transform": null,
+ "sampled_from": 190,
+ "date": "2026-11-16",
+ "seconds_per_item": 2.11,
+ "items": 30,
+ "cer": 0.09858794839521712,
+ "wer": 0.26483865574318677,
+ "aer": 0.11618642942504316,
+ "chars": {
+  "edits": 5013,
+  "reference": 50848
+ },
+ "words": {
+  "edits": 1584,
+  "reference": 5981
+ },
+ "aksharas": {
+  "edits": 3500,
+  "reference": 30124
+ },
+ "wrong_script_items": 0,
+ "cer_by_group": {
+  "Kan_034": 0.0118,
+  "Kan_035": 0.0199,
+  "Kan_046": 0.009,
+  "Kan_052": 0.0136,
+  "Kan_167": 0.0336,
+  "Kan_168": 0.0069,
+  "Kan_169": 0.6336,
+  "Kan_176": 0.0255,
+  "Kan_177": 0.0246,
+  "Kan_178": 0.0274,
+  "Kan_179": 0.0234,
+  "Kan_202": 0.0609,
+  "Kan_212": 0.0173,
+  "Kan_213": 0.0513,
+  "Kan_218": 0.0343,
+  "Kan_259": 0.0608,
+  "Kan_327": 0.0958,
+  "Kan_344": 0.0282,
+  "Kan_347": 0.0686
+ }
+}

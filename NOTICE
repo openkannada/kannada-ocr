@@ -1,0 +1,36 @@
+kan_ft_ofl2.traineddata
+
+Based on kan.traineddata by the Tesseract OCR project, from
+https://github.com/tesseract-ocr/tessdata_best (the file at commit
+9ddc24e750eec0994223a9edc3fcb434a2244f3b, unchanged since), which the
+repository licenses under the Apache License, Version 2.0.
+Modifications copyright 2026 Prasad Subrahmanya and Open Kannada contributors.
+
+What changed, in November 2026: the LSTM network was trained further on
+Kannada text lines, and the character set was extended. The word, number and
+punctuation lists are unchanged.
+
+The model file is distributed under the Apache License, Version 2.0; see
+LICENSE-MODEL. Anyone who redistributes it should include LICENSE-MODEL and
+this NOTICE.
+
+The network was trained on material under CC BY-SA 3.0 and 4.0. Whether that
+makes the model an adaptation of that material is an open question, explained
+in https://github.com/openkannada/kannada-ocr/blob/v0.1.0/docs/model-card.md.
+The material was changed for training: scans were cut into line images, some
+of them downscaled; texts were normalized with kannadi and split into lines,
+and some lines were rendered in fonts and degraded to look like print.
+
+Training data and credits:
+- Proofread transcriptions by Kannada Wikisource contributors, under CC BY-SA
+  3.0 or 4.0 and the GFDL (https://creativecommons.org/licenses/by-sa/4.0/,
+  https://creativecommons.org/licenses/by-sa/3.0/,
+  https://www.gnu.org/licenses/fdl-1.3.html).
+- Scans of 33 books on Wikimedia Commons, under CC BY-SA 4.0, CC BY-SA 3.0
+  or a public-domain tag. Each book's title, author, editor, publisher and
+  license are listed in
+  https://github.com/openkannada/kannada-ocr/blob/v0.1.0/sources/wikisource-training-books.json,
+  with a link to its Commons file page, which names the uploader.
+- Text by Kannada Wikipedia and Kannada Wikisource contributors, under CC BY-SA
+  3.0 or 4.0 and the GFDL, rendered in fonts under the SIL Open Font License
+  1.1 (https://openfontlicense.org).

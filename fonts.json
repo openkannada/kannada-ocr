@@ -1,0 +1,148 @@
+{
+ "note": "Fonts used for synthetic rendering. Font files are downloaded to data/fonts and never committed.",
+ "google": [
+  {
+   "family": "Akaya Kanadaka",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/akayakanadaka",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/akayakanadaka/AkayaKanadaka-Regular.ttf"
+   ],
+   "weights": null
+  },
+  {
+   "family": "Anek Kannada",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/anekkannada",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/anekkannada/AnekKannada[wdth,wght].ttf"
+   ],
+   "weights": [
+    400,
+    700
+   ]
+  },
+  {
+   "family": "Baloo Tamma 2",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/balootamma2",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/balootamma2/BalooTamma2[wght].ttf"
+   ],
+   "weights": [
+    400,
+    700
+   ]
+  },
+  {
+   "family": "Benne",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/benne",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/benne/Benne-Regular.ttf"
+   ],
+   "weights": null
+  },
+  {
+   "family": "Hind Mysuru",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/hindmysuru",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/hindmysuru/HindMysuru-Regular.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/hindmysuru/HindMysuru-Bold.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/hindmysuru/HindMysuru-Light.ttf"
+   ],
+   "weights": null
+  },
+  {
+   "family": "Hubballi",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/hubballi",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/hubballi/Hubballi-Regular.ttf"
+   ],
+   "weights": null
+  },
+  {
+   "family": "Noto Sans Kannada",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/notosanskannada",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/notosanskannada/NotoSansKannada[wdth,wght].ttf"
+   ],
+   "weights": [
+    300,
+    400,
+    700
+   ]
+  },
+  {
+   "family": "Noto Serif Kannada",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/notoserifkannada",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/notoserifkannada/NotoSerifKannada[wght].ttf"
+   ],
+   "weights": [
+    300,
+    400,
+    700
+   ]
+  },
+  {
+   "family": "Padyakke Expanded One",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/padyakkeexpandedone",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/padyakkeexpandedone/PadyakkeExpandedOne-Regular.ttf"
+   ],
+   "weights": null
+  },
+  {
+   "family": "Tiro Kannada",
+   "license": "OFL-1.1",
+   "source": "https://github.com/google/fonts/tree/main/ofl/tirokannada",
+   "files": [
+    "https://github.com/google/fonts/raw/main/ofl/tirokannada/TiroKannada-Regular.ttf",
+    "https://github.com/google/fonts/raw/main/ofl/tirokannada/TiroKannada-Italic.ttf"
+   ],
+   "weights": null
+  }
+ ],
+ "nudi": {
+  "archive": "http://www.kagapa.in/downloads/Nudi%20files/Fonts.zip",
+  "sha256": "e0803a0347417ece918df7ec8431e472155df1a9034d423e6ffcea76918193a5",
+  "license": "Free download from Kannada Ganaka Parishat (KaGaPa); no license text in the archive. Used locally to render training images; the font files are not redistributed.",
+  "exclude": {
+   "designs": [
+    "nudiuni12",
+    "nudiuni17",
+    "nudiuni19",
+    "nudiuni20"
+   ],
+   "reason": "Visual check on 2026-11-16: these draw some letters as other letters (for example ಗ as ದ, ಕ as ಆ, ಡ as ಹ), so their images would not match the label."
+  },
+  "legacy_exclude": {
+   "files": [
+    "NUDIB-00",
+    "NUDIB00",
+    "Nudi B Akshar-1",
+    "Nudi B Akshar-2",
+    "Nudi B Akshara-1",
+    "Nudi B Akshara-2",
+    "NUDI-diacretic",
+    "Nudi-diacretic-02",
+    "Nudi-diacretic-03",
+    "Nudi_ISCII",
+    "Nudi_KSCLP",
+    "NUDI-07",
+    "NUDI07",
+    "Nudi 12 e",
+    "Nudi 12 k",
+    "Nudi 17 e",
+    "Nudi 17 k"
+   ],
+   "reason": "Visual check on 2026-11-16 of text encoded by kannadi's unicode_to_nudi. NUDIB, Nudi B Akshar(a), the diacritic fonts, Nudi_ISCII and Nudi_KSCLP use other glyph layouts and print Latin or scrambled glyphs. NUDI-07 and NUDI07 draw ಟ like ಬ, Nudi 12 draws ಡ close to ಹ, and Nudi 17 draws ಗ and ದ alike."
+  }
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "model": "dots.mocr-8bit",
+ "set": "mile-pages",
+ "split": "test",
+ "transform": null,
+ "sampled_from": 190,
+ "date": "2026-11-16",
+ "seconds_per_item": 83.338,
+ "items": 30,
+ "cer": 0.04257787916928886,
+ "wer": 0.1379367998662431,
+ "aer": 0.051321205683176205,
+ "chars": {
+  "edits": 2165,
+  "reference": 50848
+ },
+ "words": {
+  "edits": 825,
+  "reference": 5981
+ },
+ "aksharas": {
+  "edits": 1546,
+  "reference": 30124
+ },
+ "wrong_script_items": 0,
+ "cer_by_group": {
+  "Kan_034": 0.0111,
+  "Kan_035": 0.1879,
+  "Kan_046": 0.022,
+  "Kan_052": 0.0163,
+  "Kan_167": 0.023,
+  "Kan_168": 0.0152,
+  "Kan_169": 0.1303,
+  "Kan_176": 0.0134,
+  "Kan_177": 0.022,
+  "Kan_178": 0.0287,
+  "Kan_179": 0.0227,
+  "Kan_202": 0.0195,
+  "Kan_212": 0.0252,
+  "Kan_213": 0.0224,
+  "Kan_218": 0.02,
+  "Kan_259": 0.0232,
+  "Kan_327": 0.0527,
+  "Kan_344": 0.0219,
+  "Kan_347": 0.0263
+ }
+}

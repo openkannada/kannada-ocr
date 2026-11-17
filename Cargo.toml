@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+members = ["crates/kocr-text"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT"
+authors = ["Prasad Subrahmanya <prasadus92@gmail.com>"]

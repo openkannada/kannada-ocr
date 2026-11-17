@@ -1,0 +1,29 @@
+{
+ "model": "tesseract-5.5.4-kan_ft",
+ "set": "degraded-words",
+ "split": "test",
+ "transform": null,
+ "sampled_from": 1685,
+ "date": "2026-11-16",
+ "seconds_per_item": 0.104,
+ "items": 1685,
+ "cer": 0.18281028025313187,
+ "wer": 0.8255269320843092,
+ "aer": 0.26773313492063494,
+ "chars": {
+  "edits": 2831,
+  "reference": 15486
+ },
+ "words": {
+  "edits": 1410,
+  "reference": 1708
+ },
+ "aksharas": {
+  "edits": 2159,
+  "reference": 8064
+ },
+ "wrong_script_items": 0,
+ "cer_by_group": {
+  "219": 0.1828
+ }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page xmlns="http://mile.ee.iisc.ernet.in/schemas/ocr_output" BookCode="9999" PageNumber="1">
+    <block type="Text" BlockNumber="1" rowStart="100" rowEnd="200" colStart="50" colEnd="900">
+        <line LineNumber="1" rowStart="106" rowEnd="141">
+            <word unicode="ಮನೆಯ" WordNumber="1" rowStart="104" rowEnd="141" colStart="870" colEnd="984"/>
+            <word unicode="ಬಾಗಿಲು" WordNumber="2" rowStart="108" rowEnd="143" colStart="1005" colEnd="1133"/>
+        </line>
+        <line LineNumber="2" rowStart="150" rowEnd="190">
+            <word unicode="ತೆರೆದಿದೆಯೇ" WordNumber="1" colStart="109" colEnd="0"/>
+            <word unicode="?" WordNumber="2" colStart="0" colEnd="0"/>
+        </line>
+        <line LineNumber="3" rowStart="195" rowEnd="199">
+            <word unicode=" " WordNumber="1" rowStart="195" rowEnd="199" colStart="60" colEnd="70"/>
+        </line>
+    </block>
+    <block type="Image" BlockNumber="2" rowStart="300" rowEnd="600" colStart="50" colEnd="900"/>
+</page>
