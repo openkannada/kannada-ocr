@@ -6,5 +6,5 @@ members = ["crates/kocr-text"]
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.75"
-license = "MIT"
-authors = ["Prasad Subrahmanya <prasadus92@gmail.com>"]
+license = "MIT OR Apache-2.0"
+authors = ["The Open Kannada Authors"]

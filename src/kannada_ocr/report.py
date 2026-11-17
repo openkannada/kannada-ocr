@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """A markdown table of the summaries under `results/` for 1 split."""
 
 from __future__ import annotations

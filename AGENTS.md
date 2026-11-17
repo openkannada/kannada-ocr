@@ -15,6 +15,7 @@ cargo fmt --all && cargo clippy --all-targets -- -D warnings
 uv sync                               # add --extra vlm for the vision-model baselines
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
+uvx reuse lint                        # every file has a license; new files get SPDX headers or a REUSE.toml entry
 
 uv run kocr fonts                     # download the OFL fonts, list the usable ones
 uv run kocr bench                     # build the evaluation sets under data/bench
@@ -53,13 +54,13 @@ src/kannada_ocr/        Python
   baselines/            Tesseract and mlx-vlm recognizers
 fonts.json              font sources, licenses and exclusions, as data
 results/                committed scores, and predictions where the set's license allows
-sources/                request log and book lists, with licenses
+sources/                request log and book lists, with licenses; excluded-training-books.json lists books never to train on
 data/                   downloads and generated data; never committed
 ```
 
 Principles:
 
-- **Data is data.** Font sources and exclusions live in `fonts.json`; benchmark sources and licenses live in each set's metadata and in `docs/data-card.md`.
+- **Data is data.** Font sources and exclusions live in `fonts.json`; benchmark sources and licenses live in each set's metadata and in `docs/data-card.md`; training books to leave out live in `sources/excluded-training-books.json`.
 - **Scoring has 1 implementation**, in Rust on top of kannadi. Python never computes an error rate itself.
 - **Labels match pixels.** If a font draws a character differently from its code point (digits in Nudi E and K fonts) or not at all, the label changes or the sample is dropped. A wrong label is worse than a missing sample.
 - **The benchmark stays out of training.** Splits are by book, and corpus lines that share 20 characters with any benchmark reference are dropped.
@@ -79,7 +80,7 @@ Principles:
 
 ## Commits
 
-- Commits are signed. Commit messages and PR bodies carry no AI attribution lines.
+- Commits are signed and signed off for the DCO (`git commit -S -s`); see CONTRIBUTING.md. Commit messages and PR bodies carry no AI attribution lines.
 - Every PR gets an independent review. Fix the findings, then merge with a squash when CI is green.
 - Never commit MILE images, text or OCR output of MILE pages, images rendered with Nudi fonts, or any data whose license does not allow redistribution.
 

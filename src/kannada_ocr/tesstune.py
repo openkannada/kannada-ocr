@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Fine-tunes a Tesseract model in rounds and keeps the round that scores best on dev.
 
 lstmtraining keeps the checkpoint with the lowest training error, which says little about new

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Ground truth for tesstrain, and the `.lstmf` files lstmtraining reads.
 
 `export` writes 1 PNG and 1 `.gt.txt` file per line image, which tesstrain uses for the
@@ -24,7 +27,7 @@ from pathlib import Path
 import pyarrow.parquet as pq
 from PIL import Image
 
-from . import text
+from . import text, wikisource
 from .dataset import read_jsonl
 from .http import Client
 
@@ -60,10 +63,12 @@ def _rank(item_id: str) -> str:
 
 
 def _imagefolder(source: Source) -> Iterator[Item]:
+    excluded = wikisource.excluded_books()
     rows = [
         row
         for row in read_jsonl(source.root / "metadata.jsonl")
-        if source.split is None or row.get("split") == source.split
+        if (source.split is None or row.get("split") == source.split)
+        and row.get("group") not in excluded
     ]
     rows.sort(key=lambda row: _rank(row["id"]))
     for row in rows[: source.count]:

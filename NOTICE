@@ -1,10 +1,20 @@
+kannada-ocr
+Copyright 2026 The Open Kannada Authors
+
+The code is licensed under the MIT License or the Apache License 2.0, at
+your option (LICENSE-MIT, LICENSE-APACHE). Docs, results and source lists
+written for this project are licensed under CC BY 4.0
+(LICENSES/CC-BY-4.0.txt). REUSE.toml gives the license of every file.
+
+
 kan_ft_ofl2.traineddata
+=======================
 
 Based on kan.traineddata by the Tesseract OCR project, from
 https://github.com/tesseract-ocr/tessdata_best (the file at commit
 9ddc24e750eec0994223a9edc3fcb434a2244f3b, unchanged since), which the
 repository licenses under the Apache License, Version 2.0.
-Modifications copyright 2026 Prasad Subrahmanya and Open Kannada contributors.
+Modifications copyright 2026 The Open Kannada Authors.
 
 What changed, in November 2026: the LSTM network was trained further on
 Kannada text lines, and the character set was extended. The word, number and
@@ -14,12 +24,18 @@ The model file is distributed under the Apache License, Version 2.0; see
 LICENSE-MODEL. Anyone who redistributes it should include LICENSE-MODEL and
 this NOTICE.
 
-The network was trained on material under CC BY-SA 3.0 and 4.0. Whether that
-makes the model an adaptation of that material is an open question, explained
-in https://github.com/openkannada/kannada-ocr/blob/v0.1.0/docs/model-card.md.
-The material was changed for training: scans were cut into line images, some
-of them downscaled; texts were normalized with kannadi and split into lines,
-and some lines were rendered in fonts and degraded to look like print.
+The model file contains no training text or images. The network was trained
+on the openly licensed material credited below, and the model card,
+https://github.com/openkannada/kannada-ocr/blob/main/docs/model-card.md,
+lists every source with its license. The material was changed for training:
+scans were cut into line images, some of them downscaled; texts were
+normalized with kannadi and split into lines, and some lines were rendered in
+fonts and degraded to look like print.
+
+Release v0.1.0 was also trained on 1659 lines of 1 book, ಸಂದೇಶದ ಕಥೆಗಳು
+(2001), whose scan is tagged public domain on Commons. A book from 2001 is
+very likely still under copyright, so the tag is probably wrong. The next
+release is trained without it; sources/excluded-training-books.json lists it.
 
 Training data and credits:
 - Proofread transcriptions by Kannada Wikisource contributors, under CC BY-SA
@@ -34,3 +50,24 @@ Training data and credits:
 - Text by Kannada Wikipedia and Kannada Wikisource contributors, under CC BY-SA
   3.0 or 4.0 and the GFDL, rendered in fonts under the SIL Open Font License
   1.1 (https://openfontlicense.org).
+- 3 files of https://github.com/tesseract-ocr/langdata_lstm (commit
+  07930fd9f246622c26eb5de794d9212ceac432d3), under the Apache License 2.0:
+  the Kannada and Latin character sets and the radical-stroke table.
+
+
+Third-party code and data used by the tools
+===========================================
+
+- kannadi (https://github.com/openkannada/kannadi), MIT, a build dependency
+  of crates/kocr-text.
+- tesstrain (https://github.com/tesseract-ocr/tesstrain), Apache-2.0, cloned
+  at run time at commit 405346a3a67d8e4e049341d1da6a4b752e0b8351. Not in this
+  repository.
+- MILE DegradedWordsKannada by MILE Lab, IISc
+  (https://github.com/MILE-IISc/DegradedWordsKannada), Apache-2.0. The
+  results/*/degraded-words.predictions.jsonl files hold OCR output of its
+  images; no image or reference text is in this repository.
+- The other MILE evaluation sets state no license. Only scores from them are
+  in this repository.
+- The Rust crates in Cargo.lock and the Python packages in uv.lock are under
+  MIT, Apache-2.0, BSD and other permissive licenses.

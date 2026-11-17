@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Runs a recognizer over a benchmark set and scores it with kannadi-aware metrics."""
 
 from __future__ import annotations

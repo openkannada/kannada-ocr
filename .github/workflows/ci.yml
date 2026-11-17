@@ -38,3 +38,31 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest -q
+
+  reuse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: fsfe/reuse-action@v6
+
+  dco:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Every commit is signed off (DCO)
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          status=0
+          for commit in $(git rev-list --no-merges "$BASE..$HEAD"); do
+            author=$(git log -1 --format='%an <%ae>' "$commit")
+            if ! git log -1 --format=%B "$commit" | grep -qF "Signed-off-by: $author"; then
+              echo "::error::$commit has no 'Signed-off-by: $author' line. See CONTRIBUTING.md."
+              status=1
+            fi
+          done
+          exit "$status"

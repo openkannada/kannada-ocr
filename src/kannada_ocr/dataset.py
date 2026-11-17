@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Hugging Face ImageFolder layout: `images/` plus a `metadata.jsonl` with 1 row per image.
 
 `datasets.load_dataset("imagefolder", data_dir=...)` reads this layout directly.

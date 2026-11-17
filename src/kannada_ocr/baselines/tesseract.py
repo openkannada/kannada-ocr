@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Tesseract 5 with the `kan` model from tessdata_best, or a model fine-tuned from it."""
 
 from __future__ import annotations

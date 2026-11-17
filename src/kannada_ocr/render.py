@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Renders a line of text with HarfBuzz shaping and FreeType rasterizing.
 
 Pillow's wheels are built without libraqm, so `ImageDraw.text` cannot form Kannada

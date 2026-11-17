@@ -8,7 +8,7 @@
 | SHA-256 | `8884bf7ddd73aaefd33510198428f01d04ab2aff1de6258ec8ace4cbba248b5d` |
 | Engine | Tesseract 5 LSTM (`--oem 1`); tested with Tesseract 5.5.4 |
 | Start model | `kan.traineddata` from [tesseract-ocr/tessdata_best](https://github.com/tesseract-ocr/tessdata_best), commit `9ddc24e750eec0994223a9edc3fcb434a2244f3b` |
-| License | Apache-2.0 (`LICENSE-MODEL` and `NOTICE`), with the open question in "License" below |
+| License | Apache-2.0 (`LICENSE-MODEL` and `NOTICE`); every training source is credited in "Training data and credits" |
 | Trained | 2026-11-17, on an Apple Silicon laptop CPU, with the recipe in `docs/training.md` |
 | Download | [kan_ft_ofl2.traineddata](https://github.com/openkannada/kannada-ocr/releases/download/v0.1.0/kan_ft_ofl2.traineddata), release v0.1.0 |
 
@@ -34,7 +34,7 @@ tesseract line.png out --tessdata-dir tessdata -l kan_ft_ofl2 --oem 1 --psm 7   
 | Line images cut from proofread pages of 33 Kannada Wikisource books, labeled with the Wikisource text | 94,973 | text: CC BY-SA 3.0 or 4.0 and GFDL; scans: CC BY-SA 4.0 (24 books), CC BY-SA 3.0 (4), tagged public domain on Commons (5) |
 | Synthetic lines, text from Kannada Wikipedia and Wikisource, rendered in 10 Google Fonts families | 57,572 | Wikipedia text: CC BY-SA 3.0 or 4.0 and GFDL; Wikisource text: CC BY-SA 3.0 or 4.0 and GFDL, or public domain for some works; fonts: OFL-1.1 |
 
-- **Wikisource lines.** Up to 120 proofread pages from each Kannada Wikisource book that has a license on its Commons scan and is not in the benchmark's `wikisource-old` set. The books were printed from 1951 to 2019 or are undated. Tesseract found the printed lines, and each line was labeled with the closest stretch of the page's proofread text; lines that matched badly were dropped. 24,640 of the lines are copies shrunk to 500 pixels of page width. `sources/wikisource-training-books.json` lists every book with its title, author, year, scan license, index page and Commons file. 1 of the 5 books tagged public domain, ಸಂದೇಶದ ಕಥೆಗಳು, was published in 2001, so its tag is probably wrong. It gave 1659 lines, about 1% of the training lines.
+- **Wikisource lines.** Up to 120 proofread pages from each Kannada Wikisource book that has a license on its Commons scan and is not in the benchmark's `wikisource-old` set. The books were printed from 1951 to 2019 or are undated. Tesseract found the printed lines, and each line was labeled with the closest stretch of the page's proofread text; lines that matched badly were dropped. 24,640 of the lines are copies shrunk to 500 pixels of page width. The v0.1.0 copy of [`sources/wikisource-training-books.json`](https://github.com/openkannada/kannada-ocr/blob/v0.1.0/sources/wikisource-training-books.json) lists every book with its title, author, year, scan license, index page and Commons file. 1 of the 5 books tagged public domain, ಸಂದೇಶದ ಕಥೆಗಳು, was published in 2001, so its tag is probably wrong. It gave 1659 lines, about 1% of the training lines. See "The 2001 book" below.
 - **Synthetic lines.** Text lines from the Kannada Wikipedia dump of 2023-11-01 and the Kannada Wikisource dump of 2023-12-01, from the `wikimedia/wikipedia` and `wikimedia/wikisource` datasets on Hugging Face. Each line was rendered with HarfBuzz in 1 of 10 Google Fonts families under OFL-1.1, then damaged to look like a scan or letterpress print. 39,964 of them come from a second run that gave 60% of its lines letterpress damage. `docs/data-card.md` lists the fonts and the damage.
 - **Left out.** No Nudi or other KaGaPa font, no page from a benchmark test book, and no corpus line that shares 20 characters with any benchmark reference.
 - **Model selection.** After every 10,000 training lines, the model was scored on 600 `mile-lines` dev lines and on the 32 `wikisource-old` dev pages, and the best round was kept. `lstmtraining` also reported its own error on 300 MILE dev lines and 1235 Wikisource lines from the 4 dev books. These are dev books, kept apart from the test books by book. Nothing was trained on them, but they did steer which checkpoint was kept. The MILE page sets have no stated license, so they are not part of this repository.
@@ -74,20 +74,36 @@ How the numbers are measured:
 
 The model file is released under the Apache License 2.0, the license of the `kan` model it starts from. It is a modified version of that model: the LSTM network was trained further and the character set was extended with ಋ, ಙ, ಽ and other characters seen in training. The full text is in `LICENSE-MODEL`, and `NOTICE` says what changed. Anyone who redistributes the model should include both; the release attaches them next to the model file.
 
-There is an open question we cannot settle. The network was trained on text and scan images under CC BY-SA 3.0 and 4.0. The file contains no training text or images: its word, number and punctuation lists are identical to stock `kan`'s, and the rest is network weights and a character set. Whether trained weights count as an adaptation of their training material under CC BY-SA is not settled in law, and we have not had legal advice on it.
+The file contains no training text or images: its word, number and punctuation lists are identical to stock `kan`'s, and the rest is network weights and a character set. Training on openly licensed text and releasing the weights under a permissive license is standard practice: Tesseract's own models and BERT were trained on web and Wikipedia text and ship under Apache-2.0. Every training source is credited below with its license.
 
-If they do count as an adaptation, CC BY-SA 4.0 requires the model to be shared under CC BY-SA 4.0 or a compatible license. Apache-2.0 is not one, so an Apache-2.0 grant alone would not be enough. If that matters for your use, follow CC BY-SA 4.0 as well: keep the attribution below, say that you changed the model if you did, and share changed versions under CC BY-SA 4.0.
+## The 2001 book
 
-## Attribution
+Release v0.1.0 includes 1659 training lines from ಸಂದೇಶದ ಕಥೆಗಳು by ಶ್ರೀನಿವಾಸ ವರಖೇಡಿ, published in 2001. Its scan is tagged public domain on Commons, but a book from 2001 is very likely still under copyright, so the tag is probably wrong. The next release drops it:
 
-All of the material below was used as training data for the network weights, and none of it is copied into the model file. It was changed for training: scans were cut into line images, some of them downscaled; texts were normalized with kannadi and split into lines, and some lines were rendered in fonts and degraded to look like print.
+- `sources/excluded-training-books.json` lists the book. `kocr wslines` skips it, and `kocr tesstrain-gt` leaves out its lines even from a line set built before the exclusion.
+- `sources/wikisource-training-books.json` on `main` lists the 32 books a new run trains on. The v0.1.0 copy lists the 33 that `kan_ft_ofl2` used.
+- The retrain command is in `docs/training.md`, under "Retraining without excluded books". It has not been run yet. Until it is, the v0.1.0 model file stays as released.
+
+## Training data and credits
+
+All of the material below was used as training data for the network weights of `kan_ft_ofl2` (v0.1.0), and none of it is copied into the model file. It was changed for training: scans were cut into line images, some of them downscaled; texts were normalized with kannadi and split into lines, and some lines were rendered in fonts and degraded to look like print.
+
+| Source | License | Used for |
+|---|---|---|
+| Kannada Wikisource transcriptions, by its contributors | CC BY-SA 3.0 or 4.0 and GFDL | labels of the real lines; text of synthetic lines |
+| Scans of 33 books on Wikimedia Commons, by their authors, publishers and uploaders | CC BY-SA 4.0 (24 books), CC BY-SA 3.0 (4), public-domain tag (5) | images of the real lines |
+| Kannada Wikipedia text, by its contributors | CC BY-SA 3.0 or 4.0 and GFDL | text of synthetic lines |
+| 10 font families from Google Fonts | OFL-1.1 | rendering synthetic lines |
+| Tesseract `kan` model, tessdata_best | Apache-2.0 | the start model |
+| Tesseract langdata_lstm: Kannada and Latin character sets, radical-stroke table | Apache-2.0 | building the character set |
+
 
 - Kannada Wikisource contributors, for the proofread transcriptions, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and the [GFDL](https://www.gnu.org/licenses/fdl-1.3.html).
-- The authors, editors and publishers of the 33 training books, and the uploaders of their scans on Wikimedia Commons, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or a public-domain tag. `sources/wikisource-training-books.json` gives each book's title, author, editor, publisher and license, and links its Commons file page, which names the uploader. 1 book, ಸಂತಾಪಕ, names no author on its index page.
+- The authors, editors and publishers of the 33 training books, and the uploaders of their scans on Wikimedia Commons, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or a public-domain tag. The [v0.1.0 copy of `sources/wikisource-training-books.json`](https://github.com/openkannada/kannada-ocr/blob/v0.1.0/sources/wikisource-training-books.json) gives each book's title, author, editor, publisher and license, and links its Commons file page, which names the uploader. 1 book, ಸಂತಾಪಕ, names no author on its index page.
 - Kannada Wikipedia and Kannada Wikisource contributors, for text of the synthetic lines, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and the [GFDL](https://www.gnu.org/licenses/fdl-1.3.html), or in the public domain for some Wikisource works.
-- The Tesseract OCR project, for the `kan` start model, under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).
+- The Tesseract OCR project, for the `kan` start model and the langdata_lstm character sets, under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).
 - The designers of Akaya Kanadaka, Anek Kannada, Baloo Tamma 2, Benne, Hind Mysuru, Hubballi, Noto Sans Kannada, Noto Serif Kannada, Padyakke Expanded One and Tiro Kannada, under the [SIL Open Font License 1.1](https://openfontlicense.org). The license covers the fonts; the rendered images are not font software.
-- MILE Lab, IISc, for the evaluation sets the results are measured on.
+- MILE Lab, IISc, for the evaluation sets the results are measured on. These were not used for training, except that dev lines and pages steered which checkpoint was kept; DegradedWordsKannada is under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0), and the other sets state no license.
 
 ## Contact
 

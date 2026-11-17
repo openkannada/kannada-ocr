@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Synthetic line images in Hugging Face parquet layout.
 
 Each shard is `data/train-NNNNN-of-NNNNN.parquet` with an `image` column ({bytes, path}, PNG)

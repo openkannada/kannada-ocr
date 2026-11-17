@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The font inventory for synthetic rendering, built from `fonts.json` and `data/fonts`."""
 
 from __future__ import annotations

@@ -4,8 +4,9 @@ version = "0.1.0"
 description = "Benchmark, synthetic data pipeline and baselines for open Kannada OCR"
 readme = "README.md"
 requires-python = ">=3.12"
-license = "MIT"
-authors = [{ name = "Prasad Subrahmanya", email = "prasadus92@gmail.com" }]
+license = "MIT OR Apache-2.0"
+license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
+authors = [{ name = "The Open Kannada Authors" }]
 dependencies = [
     "freetype-py>=2.5.1",
     "numpy>=2.5.5",
