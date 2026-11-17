@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Training lines cut from proofread Kannada Wikisource scans, with proofread labels.
 
 Books in the wikisource-old test split are skipped entirely. Its dev books give dev lines, used
@@ -115,10 +118,14 @@ def _pages(
 ) -> list[dict[str, Any]]:
     """Every page to cut lines from, with its book's details. Fetches and caches the scans."""
     pages = []
+    excluded = wikisource.excluded_books()
     for title in wikisource.list_indexes(client):
         index = wikisource.read_index(client, title)
         split = held.get(index.file, "train")
         if split == "test":
+            continue
+        if index.file in excluded:
+            log(f"skip {title}: in sources/excluded-training-books.json")
             continue
         licenses = wikisource.file_licenses(client, index.file)
         if not licenses:

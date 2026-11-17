@@ -21,7 +21,7 @@ shasum -a 256 tessdata/kan_ft_ofl2.traineddata   # or sha256sum; 8884bf7ddd73aae
 tesseract page.png out --tessdata-dir tessdata -l kan_ft_ofl2 --oem 1 --psm 4
 ```
 
-It was tested with Tesseract 5.5.4. Use `--psm 4` for old 1-column books and `--psm 3` for pages set in 2 columns. `docs/model-card.md` covers its training data and their licenses, its scores, its limits and how it was measured. The model file is under Apache-2.0 (`LICENSE-MODEL` and `NOTICE`, both attached to the release; include them if you redistribute the model). The card explains an open question about its CC BY-SA training data.
+It was tested with Tesseract 5.5.4. Use `--psm 4` for old 1-column books and `--psm 3` for pages set in 2 columns. `docs/model-card.md` covers its training data and their licenses, its scores, its limits and how it was measured. The model file is under Apache-2.0 (`LICENSE-MODEL` and `NOTICE`, both attached to the release; include them if you redistribute the model). The card credits every training source with its license.
 
 ## Evaluation sets
 
@@ -160,6 +160,6 @@ uv run kocr report
 
 ## License
 
-Code: MIT (`LICENSE`). The model file `kan_ft_ofl2.traineddata`: Apache-2.0 (`LICENSE-MODEL`, `NOTICE`), with the open question in `docs/model-card.md`. No image from any benchmark or training set is in this repository. `results/` holds OCR output for `degraded-words`, a set under Apache-2.0, and only scores for the other sets; `results/README.md` says why.
+Code: [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option. Copyright 2026 The Open Kannada Authors. Docs, results and source lists: CC BY 4.0. The model file `kan_ft_ofl2.traineddata`: Apache-2.0 (`LICENSE-MODEL`, `NOTICE`); `docs/model-card.md` credits its training sources. Release v0.1.0 was trained with 1 book whose public-domain tag is probably wrong; the card says how the next release drops it. No image from any benchmark or training set is in this repository. `results/` holds OCR output for `degraded-words`, a set under Apache-2.0, and only scores for the other sets; `results/README.md` says why. `NOTICE` credits third-party material, the license texts are in `LICENSES/`, and `REUSE.toml` covers every file. Contributions are welcome under the [DCO](CONTRIBUTING.md). The name Open Kannada is covered by [TRADEMARKS.md](TRADEMARKS.md).
 
 Part of [Open Kannada](https://github.com/openkannada), free and open-source tools that make Kannada work properly on computers.

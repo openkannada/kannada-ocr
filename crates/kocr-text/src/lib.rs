@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 //! Text tools for the Kannada OCR benchmark, built on [`kannadi`].
 //!
 //! - [`score`]: character, word and akshara error rates.

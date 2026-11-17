@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 from kannada_ocr import wikisource as ws
 
 PAGE_HTML = """<div class="prp-page-content"><div class="mw-parser-output">

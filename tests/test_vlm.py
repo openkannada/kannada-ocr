@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 from PIL import Image
 
 from kannada_ocr.baselines.vlm import MIN_HEIGHT, enlarged, strip_markup

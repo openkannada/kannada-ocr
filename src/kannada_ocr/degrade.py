@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Makes clean renders look like scans of printed pages, including old letterpress.
 
 Arrays are float32. `ink` is coverage in [0, 1] with 1 for full ink; a page image is

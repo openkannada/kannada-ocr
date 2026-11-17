@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 //! Error rates for OCR output: characters, words and aksharas.
 //!
 //! All 3 rates are edit distance divided by reference length, summed over a

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Vision-language OCR models run locally on Apple Silicon with mlx-vlm."""
 
 from __future__ import annotations

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 import json
 import shutil
 
@@ -183,3 +186,17 @@ def test_export_applies_the_tesseract_label_rules(tmp_path):
     (root / "metadata.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
     assert export([Source("a", root)], tmp_path / "gt") == {"a": 1}
     assert (tmp_path / "gt" / "a_v.gt.txt").read_text(encoding="utf-8") == f"ಸರ್{ZWNJ}, ಹೇಳಿ\n"
+
+
+def test_lines_of_excluded_books_are_not_exported(tmp_path, monkeypatch):
+    from kannada_ocr import wikisource
+
+    root = tmp_path / "lines"
+    (root / "images").mkdir(parents=True)
+    rows = []
+    for i, book in enumerate(["A.pdf", "B.pdf", "A.pdf"]):
+        Image.new("L", (20, 10), i).save(root / "images" / f"l{i}.png")
+        rows.append({"file_name": f"images/l{i}.png", "id": f"l{i}", "text": "ಕನ್ನಡ", "group": book})
+    (root / "metadata.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+    monkeypatch.setattr(wikisource, "excluded_books", lambda: {"B.pdf"})
+    assert sorted(i for i, _, _ in items(Source("w", root))) == ["l0", "l2"]

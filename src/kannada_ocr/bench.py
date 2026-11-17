@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Builds the evaluation sets under `data/bench/<set>/` in ImageFolder layout."""
 
 from __future__ import annotations

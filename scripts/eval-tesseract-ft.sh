@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Scores a fine-tuned Tesseract model, data/tessdata/<lang>.traineddata: first on the dev
 # books next to the start model, then on the test sets and fixed samples the baselines use.
 # degraded-words has no dev split, so it is scored on test only.

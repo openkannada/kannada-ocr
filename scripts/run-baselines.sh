@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Runs every baseline on the test split, 1 heavy step at a time, each with a time limit.
 # The vision model runs on fixed samples, and Tesseract is scored on the same samples and on
 # the full sets. The vision model needs mlx on Apple Silicon; VLM= skips it.

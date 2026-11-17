@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Text lines for synthetic rendering, cut from the Kannada Wikipedia and Wikisource dumps.
 
 Benchmark text is kept out: a line that shares any 20-character window with a

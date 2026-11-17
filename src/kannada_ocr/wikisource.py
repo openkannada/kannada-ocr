@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Proofread Kannada Wikisource pages paired with their scan images.
 
 Only `/wiki/` paths are fetched: the Wikimedia robots.txt disallows `/w/` (which holds
@@ -7,10 +10,12 @@ api.php) for general crawlers, and allows `/wiki/` pages and `?action=raw`.
 from __future__ import annotations
 
 import html
+import json
 import re
 import urllib.parse
 from dataclasses import dataclass
 from html.parser import HTMLParser
+from pathlib import Path
 
 from .http import Client
 
@@ -19,6 +24,12 @@ INDEX_NS = "ಪರಿವಿಡಿ:"
 PAGE_NS = "ಪುಟ:"
 CATEGORIES = ("Category:Index_Validated", "Category:Index_Proofread")
 KANNADA_DIGITS = "೦೧೨೩೪೫೬೭೮೯"
+EXCLUDED_BOOKS = Path(__file__).resolve().parents[2] / "sources" / "excluded-training-books.json"
+
+
+def excluded_books(path: Path = EXCLUDED_BOOKS) -> set[str]:
+    """Scan file names never to train on, because their license tag on Commons is doubtful."""
+    return {book["file"] for book in json.loads(path.read_text(encoding="utf-8"))}
 
 
 def wiki_url(title: str, query: str = "") -> str:

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 import json
 
 from kannada_ocr.wslines import LOW_RES_SHARE, held_out_books, low_res, scan_url
@@ -83,3 +86,41 @@ def test_a_failed_large_scan_falls_back_and_a_failed_page_is_skipped():
     assert fetch_scan(Client([]), small).endswith("page3-1280px-B.pdf.jpg")
     assert fetch_scan(Client(["1280px"]), small) == small
     assert fetch_scan(Client(["px-"]), small) is None
+
+
+def test_excluded_books_give_no_pages(monkeypatch):
+    from kannada_ocr import wikisource, wslines
+
+    books = {"Index:A.pdf": "A.pdf", "Index:B.pdf": "B.pdf"}
+    monkeypatch.setattr(wikisource, "excluded_books", lambda: {"B.pdf"})
+    monkeypatch.setattr(wikisource, "list_indexes", lambda client: list(books))
+    monkeypatch.setattr(
+        wikisource,
+        "read_index",
+        lambda client, title: wikisource.IndexInfo(title, books[title], {}, {1: 3, 2: 3}),
+    )
+    monkeypatch.setattr(wikisource, "file_licenses", lambda client, file: ["PD-old"])
+    monkeypatch.setattr(
+        wikisource,
+        "read_page",
+        lambda client, index, n: wikisource.ScanPage(
+            f"Page:{index.file}/{n}", 3, "ಪಠ್ಯ", "u/500px-x.jpg"
+        ),
+    )
+
+    class Client:
+        def get(self, url):
+            return b""
+
+    pages = wslines._pages(Client(), {}, lambda _: None)
+    assert {p["book"] for p in pages} == {"A.pdf"}
+
+
+def test_the_2001_book_is_excluded_and_not_in_the_training_manifest():
+    from kannada_ocr.wikisource import EXCLUDED_BOOKS, excluded_books
+
+    excluded = excluded_books()
+    assert "ಸಂದೇಶದ ಕಥೆಗಳು.pdf" in excluded
+    manifest = EXCLUDED_BOOKS.parent / "wikisource-training-books.json"
+    listed = {book["file"] for book in json.loads(manifest.read_text(encoding="utf-8"))}
+    assert not listed & excluded

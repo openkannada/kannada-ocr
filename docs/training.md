@@ -38,6 +38,21 @@ The script needs GNU make 4.2 or newer: `brew install make` on macOS gives `gmak
 
 `kan_ft`'s mix needs `GT_ARGS="--lines wikisource-lines --synth synth-v0 --kagapa 6000"`, and before it `kocr fonts --kagapa`, a `synth-v0` rendered with `--fonts unicode`, `synth-v0-nudi` and the 40-page `wikisource-lines`. Its Nudi lines make a model that cannot be published.
 
+## Retraining without excluded books
+
+`sources/excluded-training-books.json` lists books that must not be trained on. It holds ಸಂದೇಶದ ಕಥೆಗಳು (2001), which `kan_ft_ofl2` in release v0.1.0 was trained on; its public-domain tag on Commons is probably wrong. The next release is retrained without it, with the same recipe under a new model name:
+
+```sh
+MODEL=kan_ft_ofl3 ./scripts/train-tesseract.sh   # ground truth without excluded books, then training in rounds
+./scripts/eval-tesseract-ft.sh kan_ft_ofl3
+uv run kocr report
+```
+
+- The new name matters. `train-tesseract.sh` reuses an existing `$MODEL-ground-truth` folder, and the `kan_ft_ofl2` one still holds the excluded book's lines.
+- `kocr tesstrain-gt` drops the lines of excluded books from `wikisource-lines-120`, so the line set does not need to be rebuilt. A rebuild with `kocr wslines --pages-per-book 120 --name wikisource-lines-120` skips those books too.
+- It is a heavy run with the same data needs as the steps above: ground truth, packing, then rounds of about 17 minutes each on the Mac used for `kan_ft_ofl2`. Run it when the machine is free. It has not been run yet.
+- A new model needs a new release, with its own SHA-256, scores and model card entry. The v0.1.0 release asset stays as published.
+
 ## Training data
 
 The defaults, which `kan_ft_ofl2` used:

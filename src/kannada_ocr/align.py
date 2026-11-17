@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Matches the printed lines Tesseract finds on a scan to the proofread text of the page.
 
 Wikisource keeps the proofread text of each page, often without its printed line breaks, and

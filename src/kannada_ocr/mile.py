@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Readers for the MILE-IISc Kannada OCR datasets.
 
 The page set is https://github.com/MILE-IISc/Kannada-OCR-test-images-with-ground-truth:

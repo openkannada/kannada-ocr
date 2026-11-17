@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 //! Line-oriented commands. Each reads UTF-8 from a reader and writes to a writer,
 //! so the Python pipeline can call them in 1 process per batch.
 

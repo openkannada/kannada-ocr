@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Fine-tunes Tesseract's tessdata_best `kan` model with tesstrain, on the CPU. The defaults
 # follow the kan_ft_ofl2 recipe; docs/training.md lists the data it needs first. Heavy steps run 1 at a
 # time with a time limit. `kocr tesstune` trains in rounds and stops when the dev score stops
