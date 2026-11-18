@@ -128,7 +128,7 @@ From the chosen configurations (Kittel: Tübingen scan, `kanft+eng-psm3`; Ziegle
 | of which in Kannada words | about 360 | about 74 |
 | Errors in the whole book | about 1.5 million | about 200,000 |
 
-Correction effort depends on the proofreader, which I did not measure. At an assumed 10 seconds per error, checked against the image, Kittel would take about 4,200 hours and Ziegler about 560 hours; Ziegler's Kannada alone about 115 hours. At Kittel's error rate, retyping would cost about as much as correcting, so Kittel needs a better model first. OCR text for both books is under 20 MB.
+Correction effort depends on the proofreader, which I did not measure. At an assumed 10 seconds per error, checked against the image, Kittel would take about 4,200 hours and Ziegler about 560 hours; Ziegler's Kannada alone about 115 hours. At Kittel's error rate a proofreader changes about every 6th character, which is close to retyping, so Kittel needs a better model first. OCR text for both books is under 20 MB.
 
 ## What would improve accuracy most
 
