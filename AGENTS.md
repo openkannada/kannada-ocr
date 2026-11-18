@@ -47,6 +47,9 @@ src/kannada_ocr/        Python
   evaluate.py           runs a recognizer, resumes, scores through kocr-text
   report.py             markdown tables of the results, overall and per book
   align.py              labels a printed line with the closest stretch of proofread text
+  columns.py            printed area, columns and text lines of a 2-column page
+  linematch.py          scores page OCR against sampled reference lines, script by script
+  pilot.py              page lists, with URLs and checksums, for OCR pilots
   wslines.py            cuts labeled training lines from Wikisource scans
   tesstrain.py          tesstrain ground truth and multi-page .lstmf packs
   tesstune.py           fine-tunes Tesseract in rounds with early stopping on dev
@@ -54,6 +57,7 @@ src/kannada_ocr/        Python
   baselines/            Tesseract and mlx-vlm recognizers
 fonts.json              font sources, licenses and exclusions, as data
 results/                committed scores, and predictions where the set's license allows
+pilots/                OCR pilots on other books: page lists, scripts, transcriptions, outputs, results
 sources/                request log and book lists, with licenses; excluded-training-books.json lists books never to train on
 data/                   downloads and generated data; never committed
 ```
