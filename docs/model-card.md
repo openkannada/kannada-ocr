@@ -33,7 +33,7 @@ tesseract line.png out --tessdata-dir tessdata -l kan_ft_ofl3 --oem 1 --psm 7   
 
 - **Training data.** ಸಂದೇಶದ ಕಥೆಗಳು (2001) is left out. Its scan is tagged public domain on Commons, but a book from 2001 is very likely still under copyright, so the tag is probably wrong. v0.1.0 trained on 1659 of its lines; v0.2.0 trains on none. `sources/excluded-training-books.json` lists it, and every other source is the same as for v0.1.0.
 - **Training run.** Same recipe, start model and learning rate. Early stopping kept the round at 30,000 lines, against 40,000 for v0.1.0. Mean dev CER was 6.24%, against 6.15%.
-- **Accuracy.** v0.2.0 is a little less accurate than v0.1.0 on most test sets, by 0.1 to 0.7 points of CER. Its word error rate on degraded words is lower. It still beats stock Tesseract on every set. The table below has all 3 side by side.
+- **Accuracy.** v0.2.0 is a little less accurate than v0.1.0: 0.0 to 0.3 points of CER on the shared samples, and 0.1 to 0.7 on the full sets. Its word error rate on degraded words is lower. It still beats stock Tesseract on every set. The table below has all 3 side by side.
 - **File.** The model file has a new name and SHA-256. The v0.1.0 file stays available in release v0.1.0.
 
 ## Training data
@@ -70,11 +70,11 @@ How the numbers are measured:
 - Page sets also count reading order and transcription conventions, such as a drop capital written as its own line, so line and word sets are the cleaner measure of recognition.
 - The `mile-lines` and `mile-pages` sets come from MILE (IISc), `degraded-words` from MILE's DegradedWordsKannada (Apache-2.0), and `wikisource-old` from 22 books on Kannada Wikisource that are tagged public domain on Commons. `docs/data-card.md` has the sources and splits. `uv run kocr report` rebuilds this table from the files in `results/`.
 - A page took about 1.2 seconds with `kan_ft_ofl3` and 39 seconds with dots.mocr on the same Mac.
-- The gaps between v0.1.0 and v0.2.0 are close to the spread between training runs. In the learning-rate sweep for v0.1.0, runs on the same data differed by up to 0.13 points of mean dev CER at 30,000 lines. At 30,000 lines v0.2.0 scored 6.24% on dev against 6.33% for v0.1.0; v0.1.0 then improved to 6.15% at 40,000 lines, and v0.2.0 did not.
+- Part of the gap between v0.1.0 and v0.2.0 may be run-to-run variance, but that is not measured: the recipe was not repeated with another seed. At 30,000 lines v0.2.0 scored 6.24% on dev against 6.33% for v0.1.0; v0.1.0 then improved to 6.15% at 40,000 lines, and v0.2.0 did not.
 
 ## Limits
 
-- **Modern print.** dots.mocr is better on modern books, on lines (2.0% against 2.8%) and on pages (4.3% against 5.4%). By book, `kan_ft_ofl3` beats it on 8 of the 24 MILE line books in its sample and on 6 of 19 page books.
+- **Modern print.** dots.mocr is better on modern books, on lines (2.0% against 2.8%) and on pages (4.3% against 5.4%). By book, `kan_ft_ofl3` beats it on 8 of 26 MILE line books and on 6 of 19 page books.
 - **The oldest books.** On the 1868 Canarese selections it gets 10.8% against 3.4% for dots.mocr, and on ಇಂದ್ರವಜ್ರ 15.0% against 7.9%. It beats stock Tesseract on 17 of the 18 old-print test books and ties on the 18th, and beats dots.mocr on 11 of 18.
 - **Similar sources.** Its Wikisource training lines share typefaces and transcription conventions with the `wikisource-old` test books, though no test book was used. Part of its old-print gain may come from that match.
 - **Layout.** It has Tesseract's layout analysis. Tables, verse set in columns, marginal notes and mixed scripts are not handled well, and English words were a small part of its training.
@@ -100,7 +100,7 @@ All of the material below was used as training data for the network weights of `
 | Tesseract langdata_lstm: Kannada and Latin character sets, radical-stroke table | Apache-2.0 | building the character set |
 
 - Kannada Wikisource contributors, for the proofread transcriptions, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and the [GFDL](https://www.gnu.org/licenses/fdl-1.3.html).
-- The authors, editors and publishers of the 32 training books, and the uploaders of their scans on Wikimedia Commons, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or a public-domain tag. [`sources/wikisource-training-books.json`](https://github.com/openkannada/kannada-ocr/blob/v0.2.0/sources/wikisource-training-books.json) gives each book's title, author, editor, publisher and license, and links its Commons file page, which names the uploader. 1 book, ಸಂತಾಪಕ, names no author on its index page.
+- The authors, editors and publishers of the 32 training books, and the uploaders of their scans on Wikimedia Commons, under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or a public-domain tag. [`sources/wikisource-training-books.json`](https://github.com/openkannada/kannada-ocr/blob/v0.2.0/sources/wikisource-training-books.json) gives each book's title, author, editor, publisher and license, and links its Commons file page, which names the uploader. 1 book, ಸಂತಾಪಕ, names no author on its index page, and ಕುಕ್ಕಿಲ ಸಂಪುಟ names its editor, M. Prabhakara Joshy.
 - Kannada Wikipedia and Kannada Wikisource contributors, for text of the synthetic lines, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) or [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) and the [GFDL](https://www.gnu.org/licenses/fdl-1.3.html), or in the public domain for some Wikisource works.
 - The Tesseract OCR project, for the `kan` start model and the langdata_lstm character sets, under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).
 - The designers of Akaya Kanadaka, Anek Kannada, Baloo Tamma 2, Benne, Hind Mysuru, Hubballi, Noto Sans Kannada, Noto Serif Kannada, Padyakke Expanded One and Tiro Kannada, under the [SIL Open Font License 1.1](https://openfontlicense.org). The license covers the fonts; the rendered images are not font software.

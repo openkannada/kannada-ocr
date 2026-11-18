@@ -7,7 +7,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 . ./scripts/heavy.sh
-LANG_NAME=${1:-kan_ft_ofl2}
+LANG_NAME=${1:-kan_ft_ofl3}
 FT=tesseract@$LANG_NAME
 
 for lang in kan "$LANG_NAME"; do
