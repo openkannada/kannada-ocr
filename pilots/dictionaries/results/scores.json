@@ -1,0 +1,1104 @@
+[
+ {
+  "book": "kittel-1894",
+  "scan": "google",
+  "config": "kan+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1601,
+   "aer": 0.159,
+   "wer": 0.3804
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.2852,
+   "aer": 0.3555,
+   "wer": 0.562
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1811,
+   "aer": 0.1811,
+   "wer": 0.3158
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2935,
+   "aer": 0.3689,
+   "wer": 0.4945
+  },
+  "headwords": 40,
+  "headword_exact": 0.1,
+  "headword_letters": 0.275,
+  "headword_kannada": 0.625,
+  "seconds_per_page": 11.4
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "google",
+  "config": "kanft+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1687,
+   "aer": 0.1669,
+   "wer": 0.3917
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.2575,
+   "aer": 0.2869,
+   "wer": 0.5036
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1773,
+   "aer": 0.1773,
+   "wer": 0.3474
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2523,
+   "aer": 0.2686,
+   "wer": 0.4286
+  },
+  "headwords": 40,
+  "headword_exact": 0.075,
+  "headword_letters": 0.325,
+  "headword_kannada": 0.55,
+  "seconds_per_page": 12.8
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kan+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1628,
+   "aer": 0.1582,
+   "wer": 0.4049
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.3069,
+   "aer": 0.3726,
+   "wer": 0.6423
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1602,
+   "aer": 0.1602,
+   "wer": 0.3123
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.3084,
+   "aer": 0.3786,
+   "wer": 0.6484
+  },
+  "headwords": 40,
+  "headword_exact": 0.1,
+  "headword_letters": 0.375,
+  "headword_kannada": 0.55,
+  "seconds_per_page": 12.4
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kan+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1787,
+   "aer": 0.1759,
+   "wer": 0.3974
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.3008,
+   "aer": 0.3426,
+   "wer": 0.5839
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1639,
+   "aer": 0.1639,
+   "wer": 0.3018
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.329,
+   "aer": 0.3786,
+   "wer": 0.5714
+  },
+  "headwords": 40,
+  "headword_exact": 0.075,
+  "headword_letters": 0.325,
+  "headword_kannada": 0.525,
+  "seconds_per_page": 11.4
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kan+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1856,
+   "aer": 0.1815,
+   "wer": 0.4275
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.3345,
+   "aer": 0.4026,
+   "wer": 0.6496
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1781,
+   "aer": 0.1781,
+   "wer": 0.3474
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.372,
+   "aer": 0.4563,
+   "wer": 0.7033
+  },
+  "headwords": 40,
+  "headword_exact": 0.05,
+  "headword_letters": 0.225,
+  "headword_kannada": 0.525,
+  "seconds_per_page": 12.0
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1663,
+   "aer": 0.1574,
+   "wer": 0.3879
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.3008,
+   "aer": 0.3405,
+   "wer": 0.5401
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1766,
+   "aer": 0.1766,
+   "wer": 0.3614
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2654,
+   "aer": 0.3236,
+   "wer": 0.5165
+  },
+  "headwords": 40,
+  "headword_exact": 0.075,
+  "headword_letters": 0.375,
+  "headword_kannada": 0.525,
+  "seconds_per_page": 13.9
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft+eng-cols-psm6",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1611,
+   "aer": 0.155,
+   "wer": 0.3748
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.2696,
+   "aer": 0.3062,
+   "wer": 0.4964
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1624,
+   "aer": 0.1624,
+   "wer": 0.3404
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2336,
+   "aer": 0.288,
+   "wer": 0.4396
+  },
+  "headwords": 40,
+  "headword_exact": 0.1,
+  "headword_letters": 0.375,
+  "headword_kannada": 0.625,
+  "seconds_per_page": 13.6
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.157,
+   "aer": 0.1546,
+   "wer": 0.3729
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.2274,
+   "aer": 0.2463,
+   "wer": 0.4672
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.152,
+   "aer": 0.152,
+   "wer": 0.3088
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2336,
+   "aer": 0.2492,
+   "wer": 0.3846
+  },
+  "headwords": 40,
+  "headword_exact": 0.075,
+  "headword_letters": 0.375,
+  "headword_kannada": 0.65,
+  "seconds_per_page": 12.8
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.1749,
+   "aer": 0.1704,
+   "wer": 0.4011
+  },
+  "kannada": {
+   "lines": 53,
+   "chars": 831,
+   "cer": 0.2635,
+   "aer": 0.3019,
+   "wer": 0.5328
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 0.1714,
+   "aer": 0.1714,
+   "wer": 0.3439
+  },
+  "kannada_certain_lines": {
+   "lines": 37,
+   "chars": 535,
+   "cer": 0.2766,
+   "aer": 0.3172,
+   "wer": 0.4945
+  },
+  "headwords": 40,
+  "headword_exact": 0.05,
+  "headword_letters": 0.275,
+  "headword_kannada": 0.55,
+  "seconds_per_page": 13.5
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.4953,
+   "aer": 0.5535,
+   "wer": 0.7891
+  },
+  "kannada": {
+   "lines": 58,
+   "chars": 831,
+   "cer": 0.491,
+   "aer": 0.7516,
+   "wer": 1.3504
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 41,
+   "chars": 535,
+   "cer": 0.5103,
+   "aer": 0.7735,
+   "wer": 1.3187
+  },
+  "headwords": 40,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": 0.625,
+  "seconds_per_page": 10.0
+ },
+ {
+  "book": "kittel-1894",
+  "scan": "tuebingen",
+  "config": "kanft-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 2899,
+   "cer": 0.5095,
+   "aer": 0.5641,
+   "wer": 0.7985
+  },
+  "kannada": {
+   "lines": 57,
+   "chars": 831,
+   "cer": 0.491,
+   "aer": 0.7409,
+   "wer": 1.3212
+  },
+  "latin": {
+   "lines": 59,
+   "chars": 1342,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 40,
+   "chars": 535,
+   "cer": 0.5047,
+   "aer": 0.7476,
+   "wer": 1.2747
+  },
+  "headwords": 40,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": 0.525,
+  "seconds_per_page": 10.7
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kan+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.195,
+   "aer": 0.2275,
+   "wer": 0.5212
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1236,
+   "aer": 0.1663,
+   "wer": 0.3162
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3744,
+   "aer": 0.3744,
+   "wer": 0.6374
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1347,
+   "aer": 0.1769,
+   "wer": 0.3333
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.3958,
+  "headword_kannada": null,
+  "seconds_per_page": 5.1
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kan+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.2024,
+   "aer": 0.2354,
+   "wer": 0.5212
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1309,
+   "aer": 0.1728,
+   "wer": 0.3382
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.4117,
+   "aer": 0.4117,
+   "wer": 0.6316
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1261,
+   "aer": 0.1615,
+   "wer": 0.3246
+  },
+  "headwords": 48,
+  "headword_exact": 0.0833,
+  "headword_letters": 0.375,
+  "headword_kannada": null,
+  "seconds_per_page": 4.8
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kan+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.2069,
+   "aer": 0.2376,
+   "wer": 0.5251
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1561,
+   "aer": 0.1987,
+   "wer": 0.3309
+  },
+  "latin": {
+   "lines": 52,
+   "chars": 617,
+   "cer": 0.4165,
+   "aer": 0.4165,
+   "wer": 0.7193
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1375,
+   "aer": 0.1769,
+   "wer": 0.3158
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.4375,
+  "headword_kannada": null,
+  "seconds_per_page": 4.8
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1808,
+   "aer": 0.2174,
+   "wer": 0.4054
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.0876,
+   "aer": 0.108,
+   "wer": 0.1985
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3549,
+   "aer": 0.3549,
+   "wer": 0.5673
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.0931,
+   "aer": 0.1154,
+   "wer": 0.2105
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.3958,
+  "headword_kannada": null,
+  "seconds_per_page": 5.5
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft+eng-cols-psm6",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.174,
+   "aer": 0.2124,
+   "wer": 0.3629
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.0756,
+   "aer": 0.1037,
+   "wer": 0.1912
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3825,
+   "aer": 0.3825,
+   "wer": 0.5614
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.0831,
+   "aer": 0.1154,
+   "wer": 0.2105
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.3333,
+  "headword_kannada": null,
+  "seconds_per_page": 5.5
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.187,
+   "aer": 0.2225,
+   "wer": 0.4363
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1104,
+   "aer": 0.1404,
+   "wer": 0.1985
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3533,
+   "aer": 0.3533,
+   "wer": 0.5906
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1117,
+   "aer": 0.1487,
+   "wer": 0.2105
+  },
+  "headwords": 48,
+  "headword_exact": 0.0833,
+  "headword_letters": 0.4375,
+  "headword_kannada": null,
+  "seconds_per_page": 5.3
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1751,
+   "aer": 0.2073,
+   "wer": 0.4131
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1104,
+   "aer": 0.1382,
+   "wer": 0.2206
+  },
+  "latin": {
+   "lines": 52,
+   "chars": 617,
+   "cer": 0.3549,
+   "aer": 0.3549,
+   "wer": 0.6374
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1146,
+   "aer": 0.1436,
+   "wer": 0.2193
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.4167,
+  "headword_kannada": null,
+  "seconds_per_page": 5.2
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.3764,
+   "aer": 0.46,
+   "wer": 0.5985
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.2161,
+   "aer": 0.3413,
+   "wer": 0.5882
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.2206,
+   "aer": 0.3462,
+   "wer": 0.5877
+  },
+  "headwords": 48,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": null,
+  "seconds_per_page": 4.2
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "google",
+  "config": "kanft-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.3604,
+   "aer": 0.4507,
+   "wer": 0.5946
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1837,
+   "aer": 0.3024,
+   "wer": 0.5221
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1891,
+   "aer": 0.3128,
+   "wer": 0.5263
+  },
+  "headwords": 48,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": null,
+  "seconds_per_page": 3.8
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kan+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1723,
+   "aer": 0.2023,
+   "wer": 0.5174
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1236,
+   "aer": 0.1706,
+   "wer": 0.3088
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3468,
+   "aer": 0.3468,
+   "wer": 0.6725
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1246,
+   "aer": 0.1667,
+   "wer": 0.2807
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.4375,
+  "headword_kannada": null,
+  "seconds_per_page": 5.8
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kan+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.174,
+   "aer": 0.1994,
+   "wer": 0.5251
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1345,
+   "aer": 0.1663,
+   "wer": 0.3015
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3258,
+   "aer": 0.3258,
+   "wer": 0.6842
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1246,
+   "aer": 0.1538,
+   "wer": 0.2982
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.3958,
+  "headword_kannada": null,
+  "seconds_per_page": 5.1
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kan+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1933,
+   "aer": 0.2333,
+   "wer": 0.5135
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1248,
+   "aer": 0.1663,
+   "wer": 0.3015
+  },
+  "latin": {
+   "lines": 52,
+   "chars": 617,
+   "cer": 0.4052,
+   "aer": 0.4052,
+   "wer": 0.6901
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1289,
+   "aer": 0.1718,
+   "wer": 0.307
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.375,
+  "headword_kannada": null,
+  "seconds_per_page": 5.4
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft+eng-cols-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.2189,
+   "aer": 0.2477,
+   "wer": 0.4479
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1453,
+   "aer": 0.1685,
+   "wer": 0.2794
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3987,
+   "aer": 0.3987,
+   "wer": 0.6082
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1605,
+   "aer": 0.1821,
+   "wer": 0.2895
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.3542,
+  "headword_kannada": null,
+  "seconds_per_page": 6.2
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft+eng-cols-psm6",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.2132,
+   "aer": 0.2441,
+   "wer": 0.4324
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1477,
+   "aer": 0.1641,
+   "wer": 0.2574
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.4165,
+   "aer": 0.4165,
+   "wer": 0.5906
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1633,
+   "aer": 0.1769,
+   "wer": 0.2632
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.4167,
+  "headword_kannada": null,
+  "seconds_per_page": 6.3
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft+eng-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1967,
+   "aer": 0.2253,
+   "wer": 0.4247
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1369,
+   "aer": 0.1663,
+   "wer": 0.2721
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3533,
+   "aer": 0.3533,
+   "wer": 0.5789
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1461,
+   "aer": 0.1744,
+   "wer": 0.2807
+  },
+  "headwords": 48,
+  "headword_exact": 0.0417,
+  "headword_letters": 0.3125,
+  "headword_kannada": null,
+  "seconds_per_page": 5.6
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft+eng-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.1831,
+   "aer": 0.216,
+   "wer": 0.4054
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.0972,
+   "aer": 0.121,
+   "wer": 0.1912
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 0.3501,
+   "aer": 0.3501,
+   "wer": 0.5673
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.0817,
+   "aer": 0.1026,
+   "wer": 0.1842
+  },
+  "headwords": 48,
+  "headword_exact": 0.0625,
+  "headword_letters": 0.375,
+  "headword_kannada": null,
+  "seconds_per_page": 5.8
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft-psm3",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.3769,
+   "aer": 0.4716,
+   "wer": 0.6023
+  },
+  "kannada": {
+   "lines": 60,
+   "chars": 833,
+   "cer": 0.1957,
+   "aer": 0.3067,
+   "wer": 0.5147
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 51,
+   "chars": 698,
+   "cer": 0.1948,
+   "aer": 0.3051,
+   "wer": 0.5263
+  },
+  "headwords": 48,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": null,
+  "seconds_per_page": 4.1
+ },
+ {
+  "book": "ziegler-1876",
+  "scan": "tuebingen",
+  "config": "kanft-psm4",
+  "all": {
+   "lines": 60,
+   "chars": 1759,
+   "cer": 0.3667,
+   "aer": 0.4579,
+   "wer": 0.583
+  },
+  "kannada": {
+   "lines": 59,
+   "chars": 833,
+   "cer": 0.1909,
+   "aer": 0.2981,
+   "wer": 0.5
+  },
+  "latin": {
+   "lines": 51,
+   "chars": 617,
+   "cer": 1.0,
+   "aer": 1.0,
+   "wer": 1.0
+  },
+  "kannada_certain_lines": {
+   "lines": 50,
+   "chars": 698,
+   "cer": 0.1862,
+   "aer": 0.2949,
+   "wer": 0.5
+  },
+  "headwords": 48,
+  "headword_exact": 0.0,
+  "headword_letters": 0.0,
+  "headword_kannada": null,
+  "seconds_per_page": 4.0
+ }
+]
