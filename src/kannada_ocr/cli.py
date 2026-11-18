@@ -263,7 +263,7 @@ def main(argv: list[str] | None = None) -> None:
     p.set_defaults(func=cmd_wslines)
 
     p = sub.add_parser("tesstrain-gt", help="write tesstrain ground truth for fine-tuning")
-    p.add_argument("--model", default="kan_ft_ofl2")
+    p.add_argument("--model", default="kan_ft_ofl3")
     p.add_argument("--ofl", type=int, help="OFL-font lines per synthetic set; all by default")
     p.add_argument(
         "--kagapa",
@@ -286,7 +286,7 @@ def main(argv: list[str] | None = None) -> None:
     p.set_defaults(func=cmd_tesstrain_gt)
 
     p = sub.add_parser("tesstune", help="fine-tune in rounds and keep the best round on dev")
-    p.add_argument("--model", default="kan_ft_ofl2")
+    p.add_argument("--model", default="kan_ft_ofl3")
     p.add_argument("--name", help="name of the result in data/tessdata; the model's by default")
     p.add_argument(
         "--learning-rate",
@@ -301,7 +301,7 @@ def main(argv: list[str] | None = None) -> None:
     p.set_defaults(func=cmd_tesstune)
 
     p = sub.add_parser("tesstrain-pack", help="build the .lstmf files and lists for lstmtraining")
-    p.add_argument("--model", default="kan_ft_ofl2")
+    p.add_argument("--model", default="kan_ft_ofl3")
     p.add_argument("--workers", type=int, default=2)
     p.add_argument("--out", type=Path, help="tesstrain data directory")
     p.set_defaults(func=cmd_tesstrain_pack)

@@ -82,9 +82,9 @@ def test_the_defaults_follow_the_released_models_recipe(monkeypatch):
         cli.main([command])
     assert seen == {
         "fonts": "ofl",
-        "gt": ("kan_ft_ofl2", 0, "wikisource-lines-120", ["synth-v0", "synth-v1-ofl"]),
-        "tune": ("kan_ft_ofl2", None),
-        "pack": "kan_ft_ofl2",
+        "gt": ("kan_ft_ofl3", 0, "wikisource-lines-120", ["synth-v0", "synth-v1-ofl"]),
+        "tune": ("kan_ft_ofl3", None),
+        "pack": "kan_ft_ofl3",
     }
 
 

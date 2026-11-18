@@ -4,7 +4,7 @@ Instructions for anyone changing this repository, human or AI agent. Read this b
 
 ## What this is
 
-Open OCR for printed Kannada, modern and pre-1950 letterpress: an evaluation benchmark, a synthetic training-data pipeline, baseline results, a Tesseract fine-tuning recipe, and the `kan_ft_ofl2` model it produced. Text handling (normalization, aksharas, scoring) uses the kannadi crate.
+Open OCR for printed Kannada, modern and pre-1950 letterpress: an evaluation benchmark, a synthetic training-data pipeline, baseline results, a Tesseract fine-tuning recipe, and the `kan_ft_ofl3` model it produced. Text handling (normalization, aksharas, scoring) uses the kannadi crate.
 
 ## Commands
 
