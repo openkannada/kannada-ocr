@@ -50,7 +50,7 @@ uv run kocr report
 
 - The new name matters. `train-tesseract.sh` reuses an existing `$MODEL-ground-truth` folder, and the `kan_ft_ofl2` one still holds the excluded book's lines.
 - `kocr tesstrain-gt` drops the lines of excluded books from `wikisource-lines-120`, so the line set does not need to be rebuilt. A rebuild with `kocr wslines --pages-per-book 120 --name wikisource-lines-120` skips those books too.
-- It is a heavy run with the same data needs as the steps above: ground truth, packing, then rounds of about 17 minutes each on the Mac used for `kan_ft_ofl2`. Run it when the machine is free. It has not been run yet.
+- It is a heavy run with the same data needs as the steps above: ground truth, packing, then rounds of about 17 minutes each on the Mac used for `kan_ft_ofl2`. Run it when the machine is free. It was run on 2026-11-18 as `kan_ft_ofl3`, released as v0.2.0; "The `kan_ft_ofl3` run" below has the results.
 - A new model needs a new release, with its own SHA-256, scores and model card entry. The v0.1.0 release asset stays as published.
 
 ## Training data
@@ -195,4 +195,28 @@ By book, in page mode 4, `kan_ft_ofl2` is better than `kan` on 17 of the 18 old-
 
 On MILE, `kan_ft_ofl2` is better than `kan` on 22 of 26 line books and 16 of 19 page books, and better than dots.mocr on 6 of 26 and 6 of 19. Its weakest MILE book is Kan_169, at 20.5% on pages against 13.0% for dots.mocr.
 
-`kan_ft_ofl2` is the released model: it uses no Nudi font, and on every set its CER is lower than `kan_ft`'s or within 0.1 points of it.
+`kan_ft_ofl2` was released as v0.1.0: it uses no Nudi font, and on every set its CER is lower than `kan_ft`'s or within 0.1 points of it.
+
+## The `kan_ft_ofl3` run
+
+`kan_ft_ofl3` is `kan_ft_ofl2` without ಸಂದೇಶದ ಕಥೆಗಳು (2001), the book in `sources/excluded-training-books.json`. It ran on 2026-11-18 with `MODEL=kan_ft_ofl3 ./scripts/train-tesseract.sh` and everything else at the defaults. `synth-v1-ofl` was rebuilt first with its original arguments and came out at the same 39,964 lines.
+
+- Training lines: 93,314 Wikisource lines from 32 books, 17,608 `synth-v0` OFL lines and 39,964 `synth-v1-ofl` lines, in 378 packs. The Wikisource lines are the 94,973 of `kan_ft_ofl2` less the excluded book's 1659.
+- Mean dev CER by round: 6.73% at 10,000 lines, 6.30% at 20,000, 6.24% at 30,000 and 6.27% at 40,000. Training stopped there, and the round at 30,000 lines became the model. `kan_ft_ofl2` scored 6.33% at 30,000 lines and 6.15% at 40,000.
+- The whole run, from rebuilding `synth-v1-ofl` to the last test set, took 2 hours 13 minutes.
+
+Test split, on the fixed samples:
+
+| Set | `kan` | `kan_ft_ofl2` | `kan_ft_ofl3` | dots.mocr |
+|---|---|---|---|---|
+| mile-lines, 600 lines | 3.8% | 2.8% | 2.8% | **2.0%** |
+| degraded-words, 400 words | 24.4% | **16.7%** | 17.0% | 29.1% |
+| wikisource-old, 60 pages, psm 4 | 8.7% | **5.9%** | 6.0% | 7.0% |
+| mile-pages, 30 pages, psm 3 | 7.3% | 5.4% | 5.4% | **4.3%** |
+
+On the full sets `kan_ft_ofl3` scores 3.2% on `mile-lines`, 18.3% on `degraded-words`, 7.1% on `wikisource-old` in page mode 4 and 5.7% on `mile-pages`, 0.1 to 0.7 points above `kan_ft_ofl2`. Its WER on degraded words is lower: 80.3% against 86.2% on the shared 400.
+
+By book, in page mode 4, it is better than `kan` on 17 of the 18 old-print books and ties on the 18th, and better than dots.mocr on 11 of 18. Against `kan_ft_ofl2` it is better on 3 and worse on 10. The worse ones are within 0.4 points, and ಇಂದ್ರವಜ್ರ is 0.7 points better. On MILE it is better than `kan` on 24 of 26 line books and 14 of 19 page books.
+
+Leaving out 1 book costs a little accuracy, about as much as 2 runs of the same recipe differ. `kan_ft_ofl3` is released as v0.2.0 because its training data no longer includes a book whose license is in doubt.
+

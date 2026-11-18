@@ -7,8 +7,8 @@ written for this project are licensed under CC BY 4.0
 (LICENSES/CC-BY-4.0.txt). REUSE.toml gives the license of every file.
 
 
-kan_ft_ofl2.traineddata
-=======================
+kan_ft_ofl3.traineddata (release v0.2.0)
+========================================
 
 Based on kan.traineddata by the Tesseract OCR project, from
 https://github.com/tesseract-ocr/tessdata_best (the file at commit
@@ -26,26 +26,27 @@ this NOTICE.
 
 The model file contains no training text or images. The network was trained
 on the openly licensed material credited below, and the model card,
-https://github.com/openkannada/kannada-ocr/blob/main/docs/model-card.md,
+https://github.com/openkannada/kannada-ocr/blob/v0.2.0/docs/model-card.md,
 lists every source with its license. The material was changed for training:
 scans were cut into line images, some of them downscaled; texts were
 normalized with kannadi and split into lines, and some lines were rendered in
 fonts and degraded to look like print.
 
-Release v0.1.0 was also trained on 1659 lines of 1 book, ಸಂದೇಶದ ಕಥೆಗಳು
-(2001), whose scan is tagged public domain on Commons. A book from 2001 is
-very likely still under copyright, so the tag is probably wrong. The next
-release is trained without it; sources/excluded-training-books.json lists it.
+This model is not trained on ಸಂದೇಶದ ಕಥೆಗಳು (2001), whose scan is tagged
+public domain on Commons; a book from 2001 is very likely still under
+copyright, so the tag is probably wrong. sources/excluded-training-books.json
+lists it. kan_ft_ofl2.traineddata in release v0.1.0 was trained on 1659 of
+its lines, and is otherwise trained on the same sources.
 
 Training data and credits:
 - Proofread transcriptions by Kannada Wikisource contributors, under CC BY-SA
   3.0 or 4.0 and the GFDL (https://creativecommons.org/licenses/by-sa/4.0/,
   https://creativecommons.org/licenses/by-sa/3.0/,
   https://www.gnu.org/licenses/fdl-1.3.html).
-- Scans of 33 books on Wikimedia Commons, under CC BY-SA 4.0, CC BY-SA 3.0
+- Scans of 32 books on Wikimedia Commons, under CC BY-SA 4.0, CC BY-SA 3.0
   or a public-domain tag. Each book's title, author, editor, publisher and
   license are listed in
-  https://github.com/openkannada/kannada-ocr/blob/v0.1.0/sources/wikisource-training-books.json,
+  https://github.com/openkannada/kannada-ocr/blob/v0.2.0/sources/wikisource-training-books.json,
   with a link to its Commons file page, which names the uploader.
 - Text by Kannada Wikipedia and Kannada Wikisource contributors, under CC BY-SA
   3.0 or 4.0 and the GFDL, rendered in fonts under the SIL Open Font License
