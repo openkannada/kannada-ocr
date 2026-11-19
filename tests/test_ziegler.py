@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2026 The Open Kannada Authors
 # SPDX-License-Identifier: MIT OR Apache-2.0
 
+import pytest
+
 from kannada_ocr.ziegler import (
     Checks,
     Row,
@@ -259,6 +261,21 @@ def test_labels_misread_as_kannada_letters_are_put_right():
     assert f.glosses == ["ಹಲವಿಳಿಸುವ", "ಹಲವಿಳಿ", "ಇಳಿಸು"]
 
 
+@pytest.mark.parametrize(
+    ("read", "label"),
+    [("ಆ", "a."), ("ಇ", "a."), ("4", "a."), ("«", "a."), ("e", "a."), ("8", "s."), ("೯", "s.")],
+)
+def test_every_slot_misread_is_the_label_it_stands_for(read, label):
+    assert fields_of(f"Ab′bot, {read}. ಮಠಾಧಿಪತಿ.").pos == [label]
+
+
+@pytest.mark.parametrize(
+    ("read", "label"), [("ಆ", "v. a."), ("ಇ", "v. n."), ("z", "v. n."), ("7", "v. n.")]
+)
+def test_every_verb_misread_is_the_label_it_stands_for(read, label):
+    assert fields_of(f"A-bide′, v. {read}. ನೆಲೆಯಾಗಿರು.").pos == [label]
+
+
 def test_a_kannada_letter_after_the_glosses_start_is_not_a_label():
     assert fields_of("Ass, s. ಕತ್ತೆ, ಆ. ದಡ್ಡ.").pos == ["s."]
 
@@ -298,3 +315,11 @@ def test_a_reread_line_starts_its_entry_with_the_latin_headword():
     found = entries(lines)
     assert found[0].text.startswith("In-ac′tion, s. ಅನುದ್ಯೋಗ")
     assert found[0].raw[0] == "೬ s. ಅನುದ್ಯೋಗ, ಆಲಸ್ಯ,"
+    assert found[0].reread == "In-ac′tion, s. Ws"
+
+
+def test_a_latin_read_the_entry_did_not_use_is_not_kept():
+    lines = column_lines(COLUMN)
+    lines[0].text = "೬ s. ಅನುದ್ಯೋಗ, ಆಲಸ್ಯ,"
+    lines[0].reread = "3, Ws"
+    assert entries(lines)[0].reread == ""

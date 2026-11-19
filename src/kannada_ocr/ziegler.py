@@ -27,10 +27,10 @@ entry. First lines sit within 3% of the edge, indented lines 7% to 12% in."""
 GARBLED = 4
 """A headword read as Kannada comes out as a run of at most this many Kannada characters."""
 NOISE = 0.5
+"""A segment lower than this share of the column's median segment height is a stray mark."""
 NARROW = 0.3
 """A segment narrower than this share of the median segment height is a stray mark too, such
 as the column rule read as | or )."""
-"""A segment lower than this share of the column's median segment height is a stray mark."""
 TURN_GAP = 3.0
 """A gap this many line heights wide before the last segment of a line marks a turnover."""
 EDGE = 0.03
@@ -119,6 +119,7 @@ class Entry:
     raw: list[str] = field(default_factory=list)
     """The OCR lines of the entry, with turnovers moved to their lines."""
     reread: str = ""
+    """The Latin-only read of the first line, if the entry took its headword and label from it."""
 
 
 def is_kannada_letter(c: str) -> bool:
@@ -237,7 +238,8 @@ def entries(lines: Iterable[Line], speller: Speller | None = None) -> list[Entry
             text = merge_reread(ln.text, ln.reread) if ln.reread else ln.text
             out.append(Entry(ln.page, ln.column, ln.left, ln.top, ln.right, ln.bottom, text))
             out[-1].raw.append(ln.text)
-            out[-1].reread = ln.reread
+            if text != ln.text:
+                out[-1].reread = ln.reread
             continue
         e = out[-1]
         e.text = join_break(e.text, ln.text, speller)
@@ -319,10 +321,10 @@ VERB_MISREADS = {"\u0c86": "a", "\u0c87": "n", "z": "n", "7": "n"}
 """The italic a or n of v. a. and v. n. as OCR reads it: Kannada aa, Kannada i, z, 7."""
 SLOT_MISREADS = {
     "\u0c86": "a", "\u0c87": "a", "4": "a", "\u00ab": "a", "e": "a",
-    "8": "s", "5": "s", "\u0cef": "s",
+    "8": "s", "\u0cef": "s",
 }  # fmt: skip
 """The italic label right after the headword's comma as OCR reads it, by what the Latin-only
-read of the same lines gives in the Ziegler run: Kannada aa or i, 4, << or e for a.; 8, 5 or
+read of the same lines gives in the Ziegler run: Kannada aa or i, 4, << or e for a.; 8 or
 Kannada 9 for s."""
 
 

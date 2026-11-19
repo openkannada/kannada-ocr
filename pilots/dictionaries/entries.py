@@ -6,7 +6,8 @@
 Usage: uv run python pilots/dictionaries/entries.py --kannada-dict PATH [--data data]
 
 Reads ziegler-1876/ocr-lines.tsv (from book.py) and writes ziegler-1876/entries.tsv.
-PATH is the kn_IN Hunspell dictionary of kannada-spell, without its extension. The English
+PATH is the kn_IN Hunspell dictionary of kannada-spell (dict/kn_IN at commit
+KANNADA_SPELL_COMMIT), without its extension. The English
 word list is Webster's Second International (1934, public domain) as FreeBSD ships it,
 downloaded once through the repository's HTTP client and checked against its SHA-256.
 """
@@ -51,6 +52,8 @@ FIRST, LAST = 17, 576
 """The scan images of dictionary pages 1 to 560; printed page = image - OFFSET. Later images
 hold the additions and corrections, set differently, and are left out."""
 OFFSET = 16
+KANNADA_SPELL_COMMIT = "9366c23"
+"""The commit of github.com/openkannada/kannada-spell whose kn_IN dictionary gave the shares."""
 HEADER = """\
 # Ziegler 1876 entries, from OCR, not proofread
 # Source: F. Ziegler, A School-Dictionary, English and Canarese, 1st edition, Basel Mission
@@ -64,11 +67,12 @@ HEADER = """\
 # Columns: entry number; printed page; scan image; column (L or R); box in the image
 #   (left,top,right,bottom; the first column's box if the entry runs on); headword as read,
 #   with marks; headword without marks; part-of-speech labels, "; " between them; Kannada
-#   glosses, "; " between them; share of gloss words that the kn_IN Hunspell dictionary
-#   accepts; headword in the English word list (1 or 0); headword sorts between its
-#   neighbors (1 or 0); confidence (high or low); entry text as joined; OCR lines as read,
-#   with turnovers moved to their lines, " / " between them; a Latin-only read of the first
-#   line, where the 2-script read lost the headword or label and the entry took them from it.
+#   glosses, "; " between them; share of gloss words that the kn_IN Hunspell dictionary of
+#   kannada-spell (commit {spell}) accepts; headword in the English word list (1 or 0);
+#   headword sorts between its neighbors (1 or 0); confidence (high or low); entry text as
+#   joined; OCR lines as read, with turnovers moved to their lines, " / " between them; a
+#   Latin-only read of the first line, where the 2-script read lost the headword or label
+#   and the entry took them from it ({reread} entries).
 """
 FIELDS = [
     "entry",
@@ -166,7 +170,8 @@ def main() -> int:
     out = BOOK / "entries.tsv"
     high = 0
     with out.open("w", encoding="utf-8", newline="") as f:
-        f.write(HEADER)
+        reread = sum(bool(e.reread) for e in found)
+        f.write(HEADER.format(spell=KANNADA_SPELL_COMMIT, reread=f"{reread:,}"))
         writer = csv.writer(f, delimiter="\t", lineterminator="\n")
         writer.writerow(FIELDS)
         for n, (e, fl) in enumerate(zip(found, fields, strict=True)):

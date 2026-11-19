@@ -20,7 +20,7 @@ GAP = 0.6
 @dataclass(frozen=True)
 class Segment:
     line: int
-    """The line's index in its block of text, from 0."""
+    """The line's number in the TSV, counted across Tesseract's blocks, from 0."""
     left: int
     top: int
     right: int
