@@ -65,7 +65,7 @@ Test split of the benchmark in this repository. `kan_ft_ofl3` was measured on 20
 
 How the numbers are measured:
 
-- Reference and output are both normalized with [kannadi](https://github.com/openkannada/kannadi), and ZWJ and ZWNJ are removed, so encoding differences that render the same are not errors.
+- Reference and output are both put in the canonical form of kannadi's [Kannada text normalization profile](https://github.com/openkannada/kannadi/blob/main/NORMALIZATION.md), and ZWJ, ZWNJ and the other invisible characters of its rule S2 are removed, so encoding differences that render the same are not errors.
 - CER is the character edit distance summed over the set, divided by the reference length. WER is the same over whitespace-separated words, and AER over kannadi aksharas, so a wrong conjunct counts once.
 - Page sets also count reading order and transcription conventions, such as a drop capital written as its own line, so line and word sets are the cleaner measure of recognition.
 - The `mile-lines` and `mile-pages` sets come from MILE (IISc), `degraded-words` from MILE's DegradedWordsKannada (Apache-2.0), and `wikisource-old` from 22 books on Kannada Wikisource that are tagged public domain on Commons. `docs/data-card.md` has the sources and splits. `uv run kocr report` rebuilds this table from the files in `results/`.
