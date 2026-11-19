@@ -1,0 +1,41 @@
+{
+ "all": {
+  "entries": 200,
+  "boundary": 186,
+  "real": 195,
+  "headword_exact": 81,
+  "headword_plain": 155,
+  "pos": 183,
+  "glosses": 496,
+  "glosses_exact": 379,
+  "gloss_cer": 0.1477,
+  "gloss_chars": 5018,
+  "all_right": 39
+ },
+ "high": {
+  "entries": 120,
+  "boundary": 118,
+  "real": 120,
+  "headword_exact": 64,
+  "headword_plain": 118,
+  "pos": 110,
+  "glosses": 329,
+  "glosses_exact": 261,
+  "gloss_cer": 0.1117,
+  "gloss_chars": 3250,
+  "all_right": 32
+ },
+ "low": {
+  "entries": 80,
+  "boundary": 68,
+  "real": 75,
+  "headword_exact": 17,
+  "headword_plain": 37,
+  "pos": 73,
+  "glosses": 167,
+  "glosses_exact": 118,
+  "gloss_cer": 0.2138,
+  "gloss_chars": 1768,
+  "all_right": 7
+ }
+}

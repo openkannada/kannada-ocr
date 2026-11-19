@@ -24,6 +24,12 @@ MARGIN = 0.03
 """The width of a band without print that ends the printed area, as a share of the page."""
 RULE = 0.35
 """A column with more ink than this inside the printed area is a vertical rule."""
+FOOTER_RULE = 0.25
+"""A band of rows with an unbroken run of ink this share of the printed area wide holds the
+rule above a footer. Text has gaps between words, so its runs stay under 6% of the width;
+rules on the Ziegler scans run 36% to 96% of it, broken or slightly skewed."""
+RULE_BAND = 12
+"""Rows taken together, so a rule skewed by a few pixels still makes 1 run."""
 
 
 def ink(image: Image.Image) -> np.ndarray:
@@ -87,8 +93,8 @@ def gutter(mask: np.ndarray, box: Box) -> int:
     return int(left + lo + int(np.argmin(smooth[lo:hi])))
 
 
-def split_columns(mask: np.ndarray) -> tuple[Box, Box]:
-    box = content_box(mask)
+def split_columns(mask: np.ndarray, box: Box | None = None) -> tuple[Box, Box]:
+    box = box or content_box(mask)
     x = gutter(mask, box)
     left, top, right, bottom = box
     return (left, top, x, bottom), (x, top, right, bottom)
@@ -133,3 +139,43 @@ def text_lines(mask: np.ndarray, box: Box, min_gap: int = 3) -> list[Box]:
         if len(cols):
             boxes.append((left + int(cols[0]), top + a, left + int(cols[-1]) + 1, top + b))
     return boxes
+
+
+def footer_rule(mask: np.ndarray, box: Box) -> int | None:
+    """The row of a horizontal rule in the lower third of `box`, if there is one.
+
+    The first band of rows that holds the rule is found, then the row in it with the most ink.
+    """
+    left, top, right, bottom = box
+    start = top + 2 * (bottom - top) // 3
+    for y in range(start, bottom):
+        band = mask[y : y + RULE_BAND, left:right]
+        if longest_run(band.any(axis=0)) >= FOOTER_RULE * (right - left):
+            return y + int(np.argmax(band.sum(axis=1)))
+    return None
+
+
+def longest_run(row: np.ndarray) -> int:
+    """The length of the longest run of True in a 1-dimensional array."""
+    if not row.any():
+        return 0
+    edges = np.flatnonzero(np.diff(np.concatenate(([0], row.astype(np.int8), [0]))))
+    return int((edges[1::2] - edges[::2]).max())
+
+
+def page_regions(mask: np.ndarray) -> tuple[Box | None, Box]:
+    """The running head and the body of a dictionary page.
+
+    The running head is the first text line of the printed area. The body is what lies below
+    it and above the footer rule, if any; the footer (a pronunciation key) is left out.
+    """
+    box = content_box(mask)
+    left, top, right, bottom = box
+    rule = footer_rule(mask, box)
+    if rule is not None:
+        bottom = rule
+    lines = text_lines(mask, (left, top, right, bottom))
+    if len(lines) < 2:
+        return None, (left, top, right, bottom)
+    head = (left, lines[0][1], right, lines[0][3])
+    return head, (left, lines[0][3], right, bottom)

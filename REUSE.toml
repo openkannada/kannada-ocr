@@ -12,6 +12,12 @@ path = ["**/*.md", "results/**", "sources/**", "pilots/**/*.tsv", "pilots/**/*.t
 SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
 SPDX-License-Identifier = "CC-BY-4.0"
 
+# Raw Tesseract output of public-domain books adds no authorship. Later annotations win.
+[[annotations]]
+path = ["pilots/dictionaries/outputs/**/*.txt", "pilots/dictionaries/ziegler-1876/ocr-lines.tsv", "pilots/dictionaries/ziegler-1876/ocr-reread.tsv"]
+SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
+SPDX-License-Identifier = "CC0-1.0"
+
 [[annotations]]
 path = ["LICENSE-MODEL", "NOTICE"]
 SPDX-FileCopyrightText = ["Tesseract OCR project contributors", "2026 The Open Kannada Authors"]

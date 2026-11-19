@@ -50,6 +50,9 @@ src/kannada_ocr/        Python
   columns.py            printed area, columns and text lines of a 2-column page
   linematch.py          scores page OCR against sampled reference lines, script by script
   pilot.py              page lists, with URLs and checksums, for OCR pilots
+  tesstsv.py            Tesseract TSV output as text lines with boxes, cut at wide gaps
+  ziegler.py            cuts Ziegler's dictionary OCR into entries, fields and a confidence flag
+  spelling.py           Hunspell in batches and a plain English word list
   wslines.py            cuts labeled training lines from Wikisource scans
   tesstrain.py          tesstrain ground truth and multi-page .lstmf packs
   tesstune.py           fine-tunes Tesseract in rounds with early stopping on dev
