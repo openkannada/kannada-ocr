@@ -167,7 +167,12 @@ mod tests {
         assert_eq!(Score::of("ಜ\u{0CBC}ೀರೋ", "ಜೀ\u{0CBC}ರೋ").chars.edits, 0);
         assert_eq!(Score::of("ಕನ್ನಡ", "ಕನ್ನ\u{200B}ಡ").chars.edits, 0);
         assert_eq!(Score::of("ಔ", "ಒೌ").chars.edits, 0);
-        assert_eq!(Score::of("ಕನ್ನಡ", "ಕ\u{00AD}ನ್\u{2060}ನ\u{FEFF}ಡ").chars.edits, 0);
+        assert_eq!(
+            Score::of("ಕನ್ನಡ", "ಕ\u{00AD}ನ್\u{2060}ನ\u{FEFF}ಡ")
+                .chars
+                .edits,
+            0
+        );
     }
 
     #[test]
