@@ -6,8 +6,9 @@
 Usage: uv run python pilots/dictionaries/ocr.py --tessdata DIR [--data data] [--scan BOOK/SCAN]
        [--config NAME ...] [--workers 2]
 
-DIR holds kan, kan_ft_ofl3 and eng traineddata. Text goes to outputs/<book>/<scan>/<config>/
-<page>.txt and 1 row per page to outputs/timings.tsv. Pages already read are skipped.
+DIR holds kan, kan_ft_ofl3 and eng traineddata, and eng_best and Latin from models.tsv.
+Text goes to outputs/<book>/<scan>/<config>/<page>.txt and 1 row per page to
+outputs/timings.tsv. Pages already read are skipped.
 """
 
 from __future__ import annotations
@@ -49,6 +50,11 @@ CONFIGS = {
     "kanft+eng-cols-psm4": Config("kan_ft_ofl3+eng", 4, columns=True),
     "kanft+eng-cols-psm6": Config("kan_ft_ofl3+eng", 6, columns=True),
     "kan+eng-cols-psm4": Config("kan+eng", 4, columns=True),
+    "kanft+engbest-psm3": Config("kan_ft_ofl3+eng_best", 3),
+    "kanft+engbest-cols-psm6": Config("kan_ft_ofl3+eng_best", 6, columns=True),
+    "kanft+latin-psm3": Config("kan_ft_ofl3+Latin", 3),
+    "kanft+latin-cols-psm6": Config("kan_ft_ofl3+Latin", 6, columns=True),
+    "latin+kanft-cols-psm6": Config("Latin+kan_ft_ofl3", 6, columns=True),
 }
 
 

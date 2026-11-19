@@ -20,10 +20,13 @@ from pathlib import Path
 
 from kannada_ocr import text
 from kannada_ocr.linematch import closest_stretch, fold, headword_found, project
+from kannada_ocr.ziegler import latin_fix
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "outputs"
 RESULTS = HERE / "results"
+FIXES = {"ziegler-1876": ("fix", latin_fix)}
+"""A post-fix per book, scored as an extra configuration named <config>+<fix>."""
 
 
 def references(book: str) -> list[dict[str, str]]:
@@ -44,11 +47,13 @@ def rates(pairs: list[tuple[str, str, str]]) -> dict[str, float | int]:
     }
 
 
-def score_config(refs: list[dict[str, str]], folder: Path) -> dict[str, object]:
+def score_config(refs: list[dict[str, str]], folder: Path, fix=None) -> dict[str, object]:
     full, kannada, latin, certain = [], [], [], []
     exact = loose = headwords = kannada_words = kannada_found = 0
     for i, row in enumerate(refs):
         page = (folder / f"{row['page']}.txt").read_text(encoding="utf-8")
+        if fix:
+            page = fix(page)
         ref = text.normalize([row["text"]])[0]
         hyp = text.normalize([closest_stretch(ref, page)])[0]
         key = f"{row['page']}-{row['column']}-{i}"
@@ -128,6 +133,15 @@ def main() -> int:
                     "seconds_per_page": seconds[(book_dir.name, scan_dir.name, config_dir.name)],
                 }
                 results.append(result)
+                if book_dir.name in FIXES:
+                    name, fix = FIXES[book_dir.name]
+                    results.append(
+                        {
+                            **result,
+                            "config": f"{config_dir.name}+{name}",
+                            **score_config(refs, config_dir, fix),
+                        }
+                    )
     RESULTS.mkdir(exist_ok=True)
     (RESULTS / "scores.json").write_text(
         json.dumps(results, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"

@@ -2,8 +2,16 @@
 # SPDX-License-Identifier: MIT OR Apache-2.0
 
 import hashlib
+import zipfile
 
-from kannada_ocr.pilot import Page, image_path, read_pages, sha256_file, write_pages
+from kannada_ocr.pilot import (
+    Page,
+    extract_pages,
+    image_path,
+    read_pages,
+    sha256_file,
+    write_pages,
+)
 
 URL = "https://archive.org/download/x/x_images.zip/X%2FX_0656.jpg"
 
@@ -23,3 +31,16 @@ def test_the_checksum_is_sha256(tmp_path):
     path = tmp_path / "a.jpg"
     path.write_bytes(b"page")
     assert sha256_file(path) == hashlib.sha256(b"page").hexdigest()
+
+
+def test_pages_come_out_of_the_zip_their_urls_point_into(tmp_path):
+    zip_url = "https://archive.org/download/x/A%20B_jp2.zip"
+    with zipfile.ZipFile(tmp_path / "a.zip", "w") as z:
+        z.writestr("A B_jp2/A B_0030.jp2", b"page 14")
+    inside = Page("ziegler-1876", "google", "0030", f"{zip_url}/A%20B_jp2%2FA%20B_0030.jp2", "")
+    elsewhere = Page(
+        "ziegler-1876", "google", "0031", "https://archive.org/download/y/0031.jp2", ""
+    )
+    extract_pages(tmp_path / "a.zip", zip_url, [inside, elsewhere], tmp_path)
+    assert image_path(tmp_path, inside).read_bytes() == b"page 14"
+    assert not image_path(tmp_path, elsewhere).exists()

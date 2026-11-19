@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import urllib.parse
+import zipfile
 from dataclasses import dataclass, fields
 from pathlib import Path
 
@@ -46,3 +48,18 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: f.read(1 << 20), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def extract_pages(archive: Path, url: str, pages: list[Page], root: Path) -> None:
+    """Saves each page whose URL points into the zip at `url` from the local copy `archive`.
+
+    archive.org serves a zip's members at <zip URL>/<member>, with the member's name quoted.
+    """
+    with zipfile.ZipFile(archive) as z:
+        for page in pages:
+            if not page.url.startswith(url + "/"):
+                continue
+            dest = image_path(root, page)
+            if not dest.exists():
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                dest.write_bytes(z.read(urllib.parse.unquote(page.url[len(url) + 1 :])))
