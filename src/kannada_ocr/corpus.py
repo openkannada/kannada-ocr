@@ -55,11 +55,15 @@ def chunk(paragraph: str, rng: random.Random, low: int = 12, high: int = 72) -> 
         yield " ".join(current)
 
 
+# What scoring removes: rule S2 of kannadi's normalization profile, and spaces.
+IGNORED = str.maketrans("", "", " \u200c\u200d\u200b\u00ad\u2060\ufeff")
+
+
 def shingles(line: str, width: int = SHINGLE) -> set[str]:
-    """Every `width`-character window of `line` without spaces, ZWJ or ZWNJ, matching
-    what scoring ignores. A line shorter than `width` gives itself, which only an
-    identical short reference line can match."""
-    squashed = line.replace(" ", "").replace("\u200c", "").replace("\u200d", "")
+    """Every `width`-character window of `line` without spaces and the invisible characters
+    scoring removes. A line shorter than `width` gives itself, which only an identical
+    short reference line can match."""
+    squashed = line.translate(IGNORED)
     return {squashed[i : i + width] for i in range(max(1, len(squashed) - width + 1))}
 
 

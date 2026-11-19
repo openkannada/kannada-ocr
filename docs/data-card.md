@@ -50,7 +50,7 @@ Splits are by book, so no book has pages in both splits. The `assign_splits` fun
 - Kannada Wikipedia: https://huggingface.co/datasets/wikimedia/wikipedia, config `20231101.kn`, 31,437 articles. CC BY-SA 3.0 or 4.0, and GFDL, as the dataset card lists.
 - Kannada Wikisource: https://huggingface.co/datasets/wikimedia/wikisource, config `20231201.kn`, 14,980 texts. Public domain, or CC BY-SA 3.0 or 4.0 and GFDL, per work. Pages that start with film-song header fields (ಚಿತ್ರ:, ಗಾಯನ:, ಸಂಗೀತ:, ಸಾಹಿತ್ಯ:) are dropped, since their lyrics are not free.
 - Paragraphs are cut at word boundaries into pieces of 12 to 72 characters. A line needs 8 characters and at least 60% Kannada letters. Lines are normalized with kannadi and deduplicated.
-- A line that shares any 20-character window with a reference in any evaluation set is dropped. Spaces, ZWJ and ZWNJ are removed first, as scoring does. A line shorter than 20 characters is dropped only if a reference line is identical to it; common short phrases such as ಸಾಧ್ಯವಾಯಿತು stay in, since they appear in any Kannada text. In the current build this dropped 1621 Wikipedia lines and 1213 Wikisource lines.
+- A line that shares any 20-character window with a reference in any evaluation set is dropped. Spaces and the invisible characters scoring removes (ZWJ, ZWNJ, zero width space, soft hyphen, word joiner, byte order mark) are removed first. A line shorter than 20 characters is dropped only if a reference line is identical to it; common short phrases such as ಸಾಧ್ಯವಾಯಿತು stay in, since they appear in any Kannada text. In the current build this dropped 1621 Wikipedia lines and 1213 Wikisource lines.
 - Result: 400,000 lines, 200,000 from each source, in `data/corpus/lines.tsv`.
 
 ## Fonts
