@@ -36,7 +36,7 @@ Splits are by book: 20% of books are `dev`, the rest `test`. Sources, licenses a
 
 ## Metrics
 
-Both texts are normalized with kannadi, ZWJ and ZWNJ are removed, and whitespace is collapsed. Then:
+Both texts are put in the canonical form of kannadi's [Kannada text normalization profile](https://github.com/openkannada/kannadi/blob/main/NORMALIZATION.md), the invisible characters of its rule S2 (ZWJ, ZWNJ, zero width space, soft hyphen, word joiner, byte order mark) are removed, and whitespace is collapsed. Then:
 
 - **CER**: edit distance over Unicode characters, divided by reference length.
 - **WER**: the same over whitespace-separated words.

@@ -79,7 +79,7 @@ The labels are only as good as the proofreading. In a visual check of 16 aligned
 
 ### Labels for Tesseract
 
-Labels are normalized with kannadi, then put in the units Tesseract's Kannada unicharset can encode. A virama that is not followed by a consonant gets a ZWNJ after it (U+0CCD U+200C), which is how that unicharset writes an explicit virama; `lstmtraining` cannot encode a bare one. A ZWNJ between a virama and a consonant is dropped, since it cannot be encoded either. In a 400-line smoke test the first rule cut the skipped lines from 21% to 1.3%, mostly English loanwords that end in a consonant. Scoring removes ZWNJ, so neither change alters what is scored.
+Labels are put in the canonical form of kannadi's normalization profile, which removes a ZWNJ after a word-final virama, turns a ZWJ between a virama and a consonant into ZWNJ, and writes the non-arkavattu ರ as ರ + ZWJ + virama; then they are put in the units Tesseract's Kannada unicharset can encode. A virama that is not followed by a consonant gets a ZWNJ after it (U+0CCD U+200C), which is how that unicharset writes an explicit virama; `lstmtraining` cannot encode a bare one. A ZWNJ between a virama and a consonant is dropped, since it cannot be encoded either. In a 400-line smoke test the first rule cut the skipped lines from 21% to 1.3%, mostly English loanwords that end in a consonant. Scoring removes ZWNJ, so neither change alters what is scored. Before the next training run, check that the unicharset encodes ರ + ZWJ + virama, which labels can hold since kannadi 93fa091; the models up to `kan_ft_ofl3` were trained before that.
 
 ### From lines to `.lstmf`
 

@@ -8,15 +8,19 @@
 
 use serde::Serialize;
 
-const ZWNJ: char = '\u{200C}';
-const ZWJ: char = '\u{200D}';
+/// The characters rule S2 of the normalization profile removes: ZWNJ, ZWJ, zero width
+/// space, soft hyphen, word joiner and byte order mark.
+const INVISIBLE: [char; 6] = [
+    '\u{200C}', '\u{200D}', '\u{200B}', '\u{00AD}', '\u{2060}', '\u{FEFF}',
+];
 
 /// Prepares text for scoring.
 ///
-/// Applies [`kannadi::normalize`], removes U+200C ZWNJ and U+200D ZWJ, and
-/// collapses every run of whitespace to 1 space with none at either end.
-/// The joiners only choose a glyph shape, and references disagree on them,
-/// so a reader cannot see a difference that scoring would count.
+/// Puts the text in the canonical form of kannadi's Kannada text normalization
+/// profile ([`kannadi::normalize`], rules C1 to C8 of its NORMALIZATION.md), removes
+/// the invisible characters of its rule S2, and collapses every run of whitespace to
+/// 1 space with none at either end. Joiners only choose a glyph shape, and references
+/// disagree on them, so a reader cannot see a difference that scoring would count.
 ///
 /// ```
 /// assert_eq!(kocr_text::score::prepare("  ಕಿ\u{0CD5}ರ್ತಿ \n ಜೆಟ್\u{200C}ನಿ "), "ಕೀರ್ತಿ ಜೆಟ್ನಿ");
@@ -28,7 +32,7 @@ pub fn prepare(text: &str) -> String {
         if !out.is_empty() {
             out.push(' ');
         }
-        out.extend(word.chars().filter(|&c| c != ZWNJ && c != ZWJ));
+        out.extend(word.chars().filter(|c| !INVISIBLE.contains(c)));
     }
     out
 }
@@ -155,6 +159,20 @@ mod tests {
     fn scoring_ignores_spacing_and_joiners_but_not_letters() {
         assert_eq!(Score::of("ಜೆಟ್\u{200C}ನಿ  ಹೋಗು", " ಜೆಟ್ನಿ\nಹೋಗು").chars.edits, 0);
         assert_eq!(Score::of("ಕನ್ನಡ", "ಕನ್ನಡಾ").chars.edits, 1);
+    }
+
+    #[test]
+    fn scoring_uses_the_canonical_form_and_drops_invisible_characters() {
+        // Nukta typed after the vowel sign, and a zero width space inside a word.
+        assert_eq!(Score::of("ಜ\u{0CBC}ೀರೋ", "ಜೀ\u{0CBC}ರೋ").chars.edits, 0);
+        assert_eq!(Score::of("ಕನ್ನಡ", "ಕನ್ನ\u{200B}ಡ").chars.edits, 0);
+        assert_eq!(Score::of("ಔ", "ಒೌ").chars.edits, 0);
+        assert_eq!(
+            Score::of("ಕನ್ನಡ", "ಕ\u{00AD}ನ್\u{2060}ನ\u{FEFF}ಡ")
+                .chars
+                .edits,
+            0
+        );
     }
 
     #[test]

@@ -49,3 +49,9 @@ def test_film_song_pages_are_skipped(tmp_path):
     parquet = tmp_path / "ws.parquet"
     pq.write_table(pa.table({"text": ["ಚಿತ್ರ: ಅಭಿ\nಗಾಯನ: ಯಾರೋ\nಹಾಡು", "ಪುರಾತನ ಕೃತಿ"]}), parquet)
     assert list(corpus.documents(parquet, "wikisource")) == ["ಪುರಾತನ ಕೃತಿ"]
+
+
+def test_shingles_ignore_what_scoring_removes():
+    plain = "ಅವರು ಮನೆಗೆ ಬಂದರು ಎಂದು ಹೇಳಿದರು"
+    hidden = "ಅವರು ಮನೆ­ಗೆ ಬಂ​ದರು ಎಂದು⁠ ಹೇಳಿ﻿ದರು‌"
+    assert corpus.shingles(hidden) == corpus.shingles(plain)
