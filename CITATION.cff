@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use the kan_ft_ofl3 model or the Kannada OCR benchmark, please cite them as below."
+title: "Kannada OCR: an open benchmark and a fine-tuned Tesseract model for printed Kannada"
+abstract: "kan_ft_ofl3, a Tesseract 5 model for printed Kannada fine-tuned on Kannada Wikisource lines and synthetic letterpress lines in openly licensed fonts, with a benchmark of 4 evaluation sets, a synthetic data pipeline and the training recipe. On a shared sample of 60 pre-1950 letterpress pages read with --psm 4, its character error rate is 6.0%, against 8.7% for Tesseract's stock kan model."
+type: software
+authors:
+  - family-names: Subrahmanya
+    given-names: Prasad
+    website: "https://prasad.tech"
+repository-code: "https://github.com/openkannada/kannada-ocr"
+url: "https://openkannada.org/ocr/"
+license:
+  - MIT
+  - Apache-2.0
+  - CC-BY-4.0
+version: 0.2.0
+keywords:
+  - kannada
+  - ocr
+  - tesseract
+  - benchmark
+  - wikisource

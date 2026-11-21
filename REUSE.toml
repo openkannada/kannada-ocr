@@ -8,7 +8,7 @@ SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
 SPDX-License-Identifier = "MIT OR Apache-2.0"
 
 [[annotations]]
-path = ["**/*.md", "results/**", "sources/**", "pilots/**/*.tsv", "pilots/**/*.txt", "pilots/**/*.json", "pilots/**/*.jsonl"]
+path = ["**/*.md", "CITATION.cff", "results/**", "sources/**", "pilots/**/*.tsv", "pilots/**/*.txt", "pilots/**/*.json", "pilots/**/*.jsonl"]
 SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
 SPDX-License-Identifier = "CC-BY-4.0"
 
